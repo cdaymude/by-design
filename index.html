@@ -32,7 +32,6 @@
     min-height: 100vh;
   }
 
-  /* NAV */
   nav {
     display: flex;
     align-items: center;
@@ -53,9 +52,7 @@
     text-decoration: none;
   }
 
-  .nav-logo span {
-    color: var(--accent);
-  }
+  .nav-logo span { color: var(--accent); }
 
   .nav-tag {
     font-family: 'Helvetica Neue', sans-serif;
@@ -65,7 +62,6 @@
     color: var(--light);
   }
 
-  /* HERO */
   .hero {
     padding: 72px 48px 56px;
     max-width: 860px;
@@ -104,7 +100,6 @@
     margin: 0 auto 16px;
   }
 
-  /* FRAMEWORK PILLS */
   .framework-pills {
     display: flex;
     gap: 12px;
@@ -127,7 +122,6 @@
   .pill-d { background: var(--distribution-light); color: var(--distribution); }
   .pill-a { background: var(--adaptation-light); color: var(--adaptation); }
 
-  /* INPUT SECTION */
   .input-section {
     max-width: 760px;
     margin: 0 auto;
@@ -202,14 +196,8 @@
     transition: border-color 0.2s;
   }
 
-  textarea:focus {
-    border-color: var(--accent);
-    background: #fff;
-  }
-
-  textarea::placeholder {
-    color: #bbb;
-  }
+  textarea:focus { border-color: var(--accent); background: #fff; }
+  textarea::placeholder { color: #bbb; }
 
   .submit-row {
     display: flex;
@@ -248,12 +236,8 @@
     transform: translateY(-1px);
   }
 
-  .analyze-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+  .analyze-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* LOADING */
   .loading-state {
     text-align: center;
     padding: 64px 0;
@@ -280,12 +264,6 @@
     color: var(--light);
   }
 
-  .loading-text em {
-    font-style: italic;
-    color: var(--mid);
-  }
-
-  /* RESULTS */
   .results-section {
     max-width: 860px;
     margin: 0 auto;
@@ -324,7 +302,6 @@
     font-style: italic;
   }
 
-  /* DIAGNOSIS CARD */
   .diagnosis-summary {
     background: var(--black);
     color: var(--white);
@@ -335,11 +312,6 @@
     line-height: 1.7;
   }
 
-  .diagnosis-summary strong {
-    color: var(--accent);
-  }
-
-  /* FRAMEWORK CARDS */
   .framework-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -353,20 +325,9 @@
     border: 1px solid transparent;
   }
 
-  .framework-card.structure {
-    background: var(--structure-light);
-    border-color: #c8ddd6;
-  }
-
-  .framework-card.distribution {
-    background: var(--distribution-light);
-    border-color: #c4d0e4;
-  }
-
-  .framework-card.adaptation {
-    background: var(--adaptation-light);
-    border-color: #dcc8d4;
-  }
+  .framework-card.structure { background: var(--structure-light); border-color: #c8ddd6; }
+  .framework-card.distribution { background: var(--distribution-light); border-color: #c4d0e4; }
+  .framework-card.adaptation { background: var(--adaptation-light); border-color: #dcc8d4; }
 
   .card-header {
     display: flex;
@@ -383,10 +344,7 @@
     opacity: 0.5;
   }
 
-  .card-title {
-    font-size: 20px;
-    font-weight: 700;
-  }
+  .card-title { font-size: 20px; font-weight: 700; }
 
   .structure .card-title { color: var(--structure); }
   .distribution .card-title { color: var(--distribution); }
@@ -420,12 +378,7 @@
     margin-bottom: 10px;
   }
 
-  .card-questions {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .card-questions { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 
   .card-questions li {
     font-family: 'Helvetica Neue', sans-serif;
@@ -436,14 +389,8 @@
     position: relative;
   }
 
-  .card-questions li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    opacity: 0.5;
-  }
+  .card-questions li::before { content: '→'; position: absolute; left: 0; opacity: 0.5; }
 
-  /* VERDICT */
   .verdict-card {
     background: var(--cream);
     border: 1px solid var(--border);
@@ -462,18 +409,9 @@
     margin-bottom: 12px;
   }
 
-  .verdict-text {
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--black);
-  }
+  .verdict-text { font-size: 17px; line-height: 1.7; color: var(--black); }
 
-  /* ACTIONS */
-  .result-actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+  .result-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
   .btn-secondary {
     background: transparent;
@@ -488,29 +426,17 @@
     transition: all 0.2s;
   }
 
-  .btn-secondary:hover {
-    background: var(--black);
-    color: var(--white);
-  }
+  .btn-secondary:hover { background: var(--black); color: var(--white); }
 
-  /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
     padding: 28px 48px;
     text-align: center;
   }
 
-  .footer-text {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 12px;
-    color: var(--light);
-  }
+  .footer-text { font-family: 'Helvetica Neue', sans-serif; font-size: 12px; color: var(--light); }
+  .footer-text strong { color: var(--mid); }
 
-  .footer-text strong {
-    color: var(--mid);
-  }
-
-  /* ERROR */
   .error-state {
     background: #fff0f0;
     border: 1px solid #f5c0c0;
@@ -555,7 +481,6 @@
   <div class="input-card">
     <label class="input-label" for="situation">Describe your situation</label>
     <p class="input-hint">Be specific. The more context you give, the sharper the diagnosis. Include the outcome you keep seeing — not the one you want.</p>
-
     <div class="example-prompts">
       <span class="example-chip" onclick="setExample(this)">My sales team keeps missing quota</span>
       <span class="example-chip" onclick="setExample(this)">Our school's reading scores keep declining</span>
@@ -563,9 +488,7 @@
       <span class="example-chip" onclick="setExample(this)">Our nonprofit struggles to scale impact</span>
       <span class="example-chip" onclick="setExample(this)">My city's homelessness rate keeps rising</span>
     </div>
-
-    <textarea id="situation" placeholder="Example: Our customer service team consistently receives low satisfaction scores. We've hired better people, run training programs, and changed managers twice. The scores improve briefly then return to the same level within a few months..." maxlength="1200"></textarea>
-
+    <textarea id="situation" placeholder="Example: Our customer service team consistently receives low satisfaction scores. We've hired better people, run training programs, and changed managers twice..." maxlength="1200"></textarea>
     <div class="submit-row">
       <span class="char-count" id="charCount">0 / 1200</span>
       <button class="analyze-btn" id="analyzeBtn" onclick="runAnalysis()">
@@ -573,10 +496,8 @@
         <span>→</span>
       </button>
     </div>
-
     <div class="error-state" id="errorState"></div>
   </div>
-
   <div class="loading-state" id="loadingState">
     <div class="loading-spinner"></div>
     <p class="loading-text" id="loadingText">Reading the architecture of your situation...</p>
@@ -589,16 +510,12 @@
     <h2 class="results-title" id="resultsTitle"></h2>
     <p class="results-situation" id="resultsSituation"></p>
   </div>
-
   <div class="diagnosis-summary" id="diagnosisSummary"></div>
-
   <div class="framework-grid" id="frameworkGrid"></div>
-
   <div class="verdict-card" id="verdictCard" style="display:none">
     <p class="verdict-label">The Design Question</p>
     <p class="verdict-text" id="verdictText"></p>
   </div>
-
   <div class="result-actions">
     <button class="btn-secondary" onclick="resetAnalysis()">Analyze Another Situation</button>
     <button class="btn-secondary" onclick="copyResults()">Copy Results</button>
@@ -614,43 +531,37 @@ const SYSTEM_PROMPT = `You are the By Design System Analyzer — a diagnostic to
 
 The core argument of By Design: Most outcomes — good and bad — are not the result of individual character, effort, or motivation. They are the predictable product of system design. When you see a persistent pattern of outcomes, stop asking "what's wrong with the people?" and start asking "what was this system built to produce?"
 
-THE FRAMEWORK — Three dimensions of every system:
-
-1. STRUCTURE: The rules, roles, incentives, physical arrangements, and constraints that define what is even possible within the system. Structure determines what behavior the container encourages, permits, or makes impossible. Structure is the architecture — it operates whether anyone is conscious of it or not.
-
-2. DISTRIBUTION: How resources, attention, opportunity, authority, and access are allocated across the system. Distribution determines who gets what, and therefore who can succeed within the current design. Unequal distribution is often invisible because it is baked into the architecture.
-
-3. ADAPTATION: How the system responds to pressure, feedback, and change. A well-designed system flexes under load and redistributes stress across the whole. A brittle system snaps. A system that cannot adapt will either collapse rigidly or drift into chaos. Adaptation is the system's immune response.
+THE FRAMEWORK:
+1. STRUCTURE: The rules, roles, incentives, physical arrangements, and constraints that define what is even possible within the system.
+2. DISTRIBUTION: How resources, attention, opportunity, authority, and access are allocated across the system.
+3. ADAPTATION: How the system responds to pressure, feedback, and change.
 
 THREE SYSTEM FAILURE STATES:
-- Too rigid: Brittle collapse — the system cannot flex under pressure
-- Too loose: Drift and chaos — no coherent structure to hold outcomes
-- By design: The system is producing exactly what it was built to produce — but what it was built to produce may not be what its participants want or expect
+- Too rigid: Brittle collapse
+- Too loose: Drift and chaos
+- By design: Producing exactly what it was built to produce
 
-YOUR TASK:
-When given a situation, provide a structured diagnosis in JSON format with this exact schema:
-
+YOUR TASK: When given a situation, provide a structured diagnosis in this exact JSON schema:
 {
-  "title": "A sharp, 6-10 word diagnostic title for this situation (not a question)",
-  "summary": "2-3 sentence overall system diagnosis. Lead with the architectural reframe: the behavior people are calling a 'people problem' is actually a predictable product of the system's design. Be direct and specific to their situation.",
+  "title": "A sharp, 6-10 word diagnostic title",
+  "summary": "2-3 sentence overall system diagnosis. Lead with the architectural reframe.",
   "structure": {
-    "analysis": "2-3 sentences diagnosing the structural conditions at play. What rules, incentives, physical arrangements, or constraints are producing the observed outcomes? What does the architecture reward or punish?",
-    "questions": ["Reframe question 1", "Reframe question 2", "Reframe question 3"]
+    "analysis": "2-3 sentences diagnosing structural conditions.",
+    "questions": ["Question 1", "Question 2", "Question 3"]
   },
   "distribution": {
-    "analysis": "2-3 sentences diagnosing how resources, opportunity, attention, or authority are distributed. Who has access to what? Where is the imbalance baked into the design?",
-    "questions": ["Reframe question 1", "Reframe question 2", "Reframe question 3"]
+    "analysis": "2-3 sentences diagnosing resource and opportunity distribution.",
+    "questions": ["Question 1", "Question 2", "Question 3"]
   },
   "adaptation": {
-    "analysis": "2-3 sentences diagnosing the system's capacity to respond to feedback and pressure. Is it too rigid, too loose, or producing exactly what it was designed to produce? How does it absorb or reject change?",
-    "questions": ["Reframe question 1", "Reframe question 2", "Reframe question 3"]
+    "analysis": "2-3 sentences diagnosing the system's capacity to respond to feedback.",
+    "questions": ["Question 1", "Question 2", "Question 3"]
   },
-  "designQuestion": "One powerful, specific question that reframes this entire situation as a design problem rather than a people problem. Should start with 'What if...' or 'What was this system built to...' or similar. Make it land like a provocation."
+  "designQuestion": "One powerful question that reframes this as a design problem."
 }
 
-TONE: Incisive, direct, non-judgmental, intellectually serious. You are a systems architect, not a therapist. Avoid jargon. Write like Malcolm Gladwell thinks — specific examples and concrete observations, not abstract theory. Speak to the person as someone who is capable of understanding and acting on this diagnosis.
-
-IMPORTANT: Return ONLY valid JSON. No preamble, no markdown fences, no explanation outside the JSON object.`;
+TONE: Incisive, direct, non-judgmental. Write like Malcolm Gladwell thinks — specific and concrete, not abstract.
+IMPORTANT: Return ONLY valid JSON. No preamble, no markdown fences.`;
 
 const LOADING_MESSAGES = [
   "Reading the architecture of your situation...",
@@ -661,7 +572,6 @@ const LOADING_MESSAGES = [
 
 let loadingInterval;
 let lastSituation = '';
-let lastResultText = '';
 
 document.getElementById('situation').addEventListener('input', function() {
   document.getElementById('charCount').textContent = this.value.length + ' / 1200';
@@ -671,10 +581,10 @@ function setExample(el) {
   const textarea = document.getElementById('situation');
   const examples = {
     'My sales team keeps missing quota': 'My sales team consistently misses its quarterly quota. We\'ve replaced the manager, run skills training, and increased the commission rate. Performance improves slightly for a month, then falls back. The team has talent — several reps have strong track records elsewhere — but something about this environment keeps producing the same results.',
-    'Our school\'s reading scores keep declining': 'Reading proficiency at our elementary school has dropped every year for the past four years. We\'ve brought in new curriculum, added reading specialists, and increased parent communication. Teachers are working harder than ever but the scores keep falling. Our students are disproportionately from lower-income families, and we can\'t figure out if that\'s the explanation or just a convenient one.',
-    'We can\'t seem to retain top employees': 'Our company has a retention problem at the senior level. We lose our best performers after 12-18 months, usually to competitors. Exit interviews cite \'better opportunity\' but that\'s vague. We offer competitive salaries and have a stated culture of growth and autonomy, but something keeps driving our most capable people out the door.',
-    'Our nonprofit struggles to scale impact': 'We run a workforce development nonprofit and have strong results at small scale — about 200 participants per year. But every time we try to grow, our outcomes dilute. The model that works with 200 people seems to break at 500. We\'ve hired more staff and secured more funding but the impact per participant keeps declining as we scale.',
-    'My city\'s homelessness rate keeps rising': 'Our city has increased its homeless services budget by 40% over three years. We have more shelter beds, more outreach workers, and more transitional housing than ever before. The visible homeless population has still increased. Politicians blame individuals. Advocates blame politicians. Neither explanation seems to lead anywhere useful.'
+    'Our school\'s reading scores keep declining': 'Reading proficiency at our elementary school has dropped every year for the past four years. We\'ve brought in new curriculum, added reading specialists, and increased parent communication. Teachers are working harder than ever but the scores keep falling.',
+    'We can\'t seem to retain top employees': 'Our company has a retention problem at the senior level. We lose our best performers after 12-18 months, usually to competitors. Exit interviews cite \'better opportunity\' but that\'s vague. We offer competitive salaries and have a stated culture of growth and autonomy.',
+    'Our nonprofit struggles to scale impact': 'We run a workforce development nonprofit with strong results at small scale — about 200 participants per year. But every time we try to grow, our outcomes dilute. The model that works with 200 people seems to break at 500.',
+    'My city\'s homelessness rate keeps rising': 'Our city has increased its homeless services budget by 40% over three years. We have more shelter beds, more outreach workers, and more transitional housing than ever before. The visible homeless population has still increased.'
   };
   textarea.value = examples[el.textContent] || el.textContent;
   document.getElementById('charCount').textContent = textarea.value.length + ' / 1200';
@@ -690,49 +600,42 @@ async function runAnalysis() {
 
   hideError();
   lastSituation = situation;
-
-  // Hide results, show loading
   document.getElementById('resultsSection').classList.remove('visible');
   document.getElementById('analyzeBtn').disabled = true;
-  
+
   const loadingState = document.getElementById('loadingState');
   loadingState.classList.add('visible');
-  
+
   let msgIndex = 0;
   const loadingText = document.getElementById('loadingText');
   loadingText.textContent = LOADING_MESSAGES[0];
   loadingInterval = setInterval(() => {
     msgIndex = (msgIndex + 1) % LOADING_MESSAGES.length;
-    loadingText.innerHTML = LOADING_MESSAGES[msgIndex];
+    loadingText.textContent = LOADING_MESSAGES[msgIndex];
   }, 2200);
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('/.netlify/functions/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1000,
         system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: `Please analyze this situation through the By Design framework:\n\n${situation}` }]
+        messages: [{ role: 'user', content: 'Please analyze this situation through the By Design framework:\n\n' + situation }]
       })
     });
 
     const data = await response.json();
-    
     if (!response.ok) throw new Error(data.error?.message || 'API error');
 
     const rawText = data.content.map(b => b.text || '').join('');
-    lastResultText = rawText;
-    
-    // Clean and parse JSON
     const clean = rawText.replace(/```json|```/g, '').trim();
     const result = JSON.parse(clean);
 
     clearInterval(loadingInterval);
     loadingState.classList.remove('visible');
     document.getElementById('analyzeBtn').disabled = false;
-
     renderResults(result, situation);
 
   } catch (err) {
@@ -745,19 +648,15 @@ async function runAnalysis() {
 }
 
 function renderResults(result, situation) {
-  // Header
   document.getElementById('resultsTitle').textContent = result.title || 'System Diagnosis';
   document.getElementById('resultsSituation').textContent = '"' + situation.substring(0, 120) + (situation.length > 120 ? '...' : '') + '"';
-
-  // Summary
   document.getElementById('diagnosisSummary').innerHTML = result.summary || '';
 
-  // Framework cards
   const grid = document.getElementById('frameworkGrid');
   grid.innerHTML = '';
 
   const dimensions = [
-    { key: 'structure', label: 'Structure', def: 'The rules, roles, incentives, and constraints that define what\'s possible', cls: 'structure', n: '01' },
+    { key: 'structure', label: 'Structure', def: "The rules, roles, incentives, and constraints that define what's possible", cls: 'structure', n: '01' },
     { key: 'distribution', label: 'Distribution', def: 'How resources, opportunity, and access are allocated across the system', cls: 'distribution', n: '02' },
     { key: 'adaptation', label: 'Adaptation', def: 'How the system responds to pressure, feedback, and the need for change', cls: 'adaptation', n: '03' }
   ];
@@ -765,29 +664,26 @@ function renderResults(result, situation) {
   dimensions.forEach(dim => {
     const d = result[dim.key] || {};
     const card = document.createElement('div');
-    card.className = `framework-card ${dim.cls}`;
-    card.innerHTML = `
-      <div class="card-header">
-        <span class="card-number">${dim.n}</span>
-        <h3 class="card-title">${dim.label}</h3>
-      </div>
-      <p class="card-definition">${dim.def}</p>
-      <p class="card-analysis">${d.analysis || ''}</p>
-      <p class="card-questions-label">Reframe Questions</p>
-      <ul class="card-questions">
-        ${(d.questions || []).map(q => `<li>${q}</li>`).join('')}
-      </ul>
-    `;
+    card.className = 'framework-card ' + dim.cls;
+    card.innerHTML =
+      '<div class="card-header">' +
+        '<span class="card-number">' + dim.n + '</span>' +
+        '<h3 class="card-title">' + dim.label + '</h3>' +
+      '</div>' +
+      '<p class="card-definition">' + dim.def + '</p>' +
+      '<p class="card-analysis">' + (d.analysis || '') + '</p>' +
+      '<p class="card-questions-label">Reframe Questions</p>' +
+      '<ul class="card-questions">' +
+        (d.questions || []).map(q => '<li>' + q + '</li>').join('') +
+      '</ul>';
     grid.appendChild(card);
   });
 
-  // Verdict
   if (result.designQuestion) {
     document.getElementById('verdictText').textContent = result.designQuestion;
     document.getElementById('verdictCard').style.display = 'block';
   }
 
-  // Show results
   const section = document.getElementById('resultsSection');
   section.classList.add('visible');
   section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -804,19 +700,15 @@ function copyResults() {
   const title = document.getElementById('resultsTitle').textContent;
   const summary = document.getElementById('diagnosisSummary').textContent;
   const cards = document.querySelectorAll('.framework-card');
-  
-  let text = `BY DESIGN — SYSTEM DIAGNOSIS\n\n${title}\n\nSituation: "${lastSituation}"\n\nDIAGNOSIS:\n${summary}\n\n`;
-  
+  let text = 'BY DESIGN — SYSTEM DIAGNOSIS\n\n' + title + '\n\nSituation: "' + lastSituation + '"\n\nDIAGNOSIS:\n' + summary + '\n\n';
   cards.forEach(card => {
     const t = card.querySelector('.card-title')?.textContent || '';
     const a = card.querySelector('.card-analysis')?.textContent || '';
     const qs = Array.from(card.querySelectorAll('.card-questions li')).map(li => '→ ' + li.textContent);
-    text += `${t.toUpperCase()}\n${a}\n\nReframe Questions:\n${qs.join('\n')}\n\n`;
+    text += t.toUpperCase() + '\n' + a + '\n\nReframe Questions:\n' + qs.join('\n') + '\n\n';
   });
-
   const verdict = document.getElementById('verdictText').textContent;
-  if (verdict) text += `THE DESIGN QUESTION:\n${verdict}`;
-
+  if (verdict) text += 'THE DESIGN QUESTION:\n' + verdict;
   navigator.clipboard.writeText(text).then(() => {
     const btn = event.target;
     btn.textContent = 'Copied!';
