@@ -3,728 +3,856 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>By Design — System Analyzer</title>
+<title>By Design — Colin Daymude</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --black: #0a0a0a;
-    --white: #f5f4f0;
-    --cream: #ede9e0;
-    --accent: #c8a96e;
-    --accent-dark: #a8843e;
-    --mid: #5a5a5a;
-    --light: #9a9a9a;
-    --border: #d4cfc4;
-    --card-bg: #ffffff;
-    --structure: #2c4a3e;
-    --distribution: #2a3d5c;
-    --adaptation: #4a2c3e;
-    --structure-light: #e8f0ed;
-    --distribution-light: #e8ecf4;
-    --adaptation-light: #f0e8ed;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Georgia', serif;
-    background: var(--white);
-    color: var(--black);
-    min-height: 100vh;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 48px;
-    border-bottom: 1px solid var(--border);
-    background: var(--white);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .nav-logo {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--black);
-    text-decoration: none;
-  }
-
-  .nav-logo span { color: var(--accent); }
-
-  .nav-tag {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--light);
-  }
-
-  .hero {
-    padding: 72px 48px 56px;
-    max-width: 860px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .hero-eyebrow {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-  }
-
-  .hero h1 {
-    font-size: clamp(32px, 5vw, 52px);
-    line-height: 1.15;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--black);
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent-dark);
-  }
-
-  .hero-sub {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-    color: var(--mid);
-    max-width: 600px;
-    margin: 0 auto 16px;
-  }
-
-  .framework-pills {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 32px 0 0;
-  }
-
-  .pill {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 20px;
-  }
-
-  .pill-s { background: var(--structure-light); color: var(--structure); }
-  .pill-d { background: var(--distribution-light); color: var(--distribution); }
-  .pill-a { background: var(--adaptation-light); color: var(--adaptation); }
-
-  .input-section {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 48px 64px;
-  }
-
-  .input-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 36px;
-    box-shadow: 0 2px 24px rgba(0,0,0,0.06);
-  }
-
-  .input-label {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin-bottom: 12px;
-    display: block;
-  }
-
-  .input-hint {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 13px;
-    color: var(--light);
-    margin-bottom: 16px;
-    line-height: 1.5;
-  }
-
-  .example-prompts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .example-chip {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 12px;
-    padding: 5px 12px;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    cursor: pointer;
-    color: var(--mid);
-    background: var(--cream);
-    transition: all 0.2s;
-  }
-
-  .example-chip:hover {
-    border-color: var(--accent);
-    color: var(--accent-dark);
-    background: #fdf8f0;
-  }
-
-  textarea {
-    width: 100%;
-    min-height: 120px;
-    padding: 16px;
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--black);
-    background: #fafaf8;
-    resize: vertical;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  textarea:focus { border-color: var(--accent); background: #fff; }
-  textarea::placeholder { color: #bbb; }
-
-  .submit-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 16px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .char-count {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 12px;
-    color: var(--light);
-  }
-
-  .analyze-btn {
-    background: var(--black);
-    color: var(--white);
-    border: none;
-    border-radius: 8px;
-    padding: 14px 32px;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .analyze-btn:hover:not(:disabled) {
-    background: var(--accent-dark);
-    transform: translateY(-1px);
-  }
-
-  .analyze-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-  .loading-state {
-    text-align: center;
-    padding: 64px 0;
-    display: none;
-  }
-
-  .loading-state.visible { display: block; }
-
-  .loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin: 0 auto 20px;
-  }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .loading-text {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    color: var(--light);
-  }
-
-  .results-section {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 48px 80px;
-    display: none;
-  }
-
-  .results-section.visible { display: block; }
-
-  .results-header {
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .results-eyebrow {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 10px;
-  }
-
-  .results-title {
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 8px;
-  }
-
-  .results-situation {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    color: var(--light);
-    font-style: italic;
-  }
-
-  .diagnosis-summary {
-    background: var(--black);
-    color: var(--white);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 32px;
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  .framework-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-
-  .framework-card {
-    border-radius: 12px;
-    padding: 28px 32px;
-    border: 1px solid transparent;
-  }
-
-  .framework-card.structure { background: var(--structure-light); border-color: #c8ddd6; }
-  .framework-card.distribution { background: var(--distribution-light); border-color: #c4d0e4; }
-  .framework-card.adaptation { background: var(--adaptation-light); border-color: #dcc8d4; }
-
-  .card-header {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-
-  .card-number {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    opacity: 0.5;
-  }
-
-  .card-title { font-size: 20px; font-weight: 700; }
-
-  .structure .card-title { color: var(--structure); }
-  .distribution .card-title { color: var(--distribution); }
-  .adaptation .card-title { color: var(--adaptation); }
-
-  .card-definition {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    opacity: 0.6;
-    margin-bottom: 14px;
-  }
-
-  .card-analysis {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #333;
-    margin-bottom: 20px;
-  }
-
-  .card-questions-label {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    opacity: 0.5;
-    margin-bottom: 10px;
-  }
-
-  .card-questions { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-
-  .card-questions li {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    line-height: 1.55;
-    color: #444;
-    padding-left: 18px;
-    position: relative;
-  }
-
-  .card-questions li::before { content: '→'; position: absolute; left: 0; opacity: 0.5; }
-
-  .verdict-card {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 32px;
-  }
-
-  .verdict-label {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent-dark);
-    margin-bottom: 12px;
-  }
-
-  .verdict-text { font-size: 17px; line-height: 1.7; color: var(--black); }
-
-  .result-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--black);
-    border: 1.5px solid var(--black);
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .btn-secondary:hover { background: var(--black); color: var(--white); }
-
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 28px 48px;
-    text-align: center;
-  }
-
-  .footer-text { font-family: 'Helvetica Neue', sans-serif; font-size: 12px; color: var(--light); }
-  .footer-text strong { color: var(--mid); }
-
-  .error-state {
-    background: #fff0f0;
-    border: 1px solid #f5c0c0;
-    border-radius: 8px;
-    padding: 16px 20px;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    color: #c0392b;
-    display: none;
-    margin-top: 16px;
-  }
-
-  .error-state.visible { display: block; }
-
-  @media (max-width: 600px) {
-    nav, .input-section, .results-section, footer { padding-left: 20px; padding-right: 20px; }
-    .hero { padding: 48px 20px 40px; }
-    .input-card { padding: 24px 20px; }
-    .framework-card { padding: 20px; }
-  }
+:root {
+  --black: #0c0b09;
+  --white: #f6f3ee;
+  --cream: #ede9e0;
+  --gold: #b8924a;
+  --gold-light: #d4aa6a;
+  --mid: #5c5650;
+  --light: #9c9690;
+  --border: #d8d2c8;
+  --structure: #2c4a3e;
+  --distribution: #2a3d5c;
+  --adaptation: #4a2c3e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 64px;
+  background: rgba(246,243,238,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.nav-logo em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--black); }
+
+.nav-cta {
+  background: var(--black);
+  color: var(--white) !important;
+  padding: 8px 20px;
+  border-radius: 4px;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--gold) !important; color: var(--white) !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 64px;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px 80px 80px;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 5vw, 76px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  margin-bottom: 28px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+  display: block;
+}
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--mid);
+  max-width: 480px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--black);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--gold);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  color: var(--black);
+  padding: 14px 32px;
+  border: 1.5px solid var(--black);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.hero-right {
+  position: relative;
+  background: var(--black);
+  overflow: hidden;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(184,146,74,0.15) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(184,146,74,0.08) 0%, transparent 50%);
+}
+
+.hero-quote-block {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px;
+  z-index: 1;
+}
+
+.hero-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3vw, 44px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--white);
+  margin-bottom: 32px;
+  opacity: 0.92;
+}
+
+.hero-question strong {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+}
+
+.hero-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.pillar-num {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  padding-top: 3px;
+  min-width: 20px;
+}
+
+.pillar-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.pillar-def {
+  font-size: 13px;
+  color: rgba(246,243,238,0.5);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* ARGUMENT SECTION */
+.argument {
+  padding: 120px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.argument-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 8px;
+}
+
+.argument-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 3vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 28px;
+  color: var(--black);
+}
+
+.argument-body h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.argument-body p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--mid);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.argument-body p:last-child { margin-bottom: 0; }
+
+/* FRAMEWORK SECTION */
+.framework-section {
+  background: var(--black);
+  padding: 100px 80px;
+}
+
+.framework-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+}
+
+.framework-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.fw-card {
+  padding: 40px 36px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.3s;
+}
+
+.fw-card:hover { background: rgba(255,255,255,0.04); }
+
+.fw-num {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.fw-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.fw-body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(246,243,238,0.55);
+  font-weight: 300;
+}
+
+/* ANALYZER CTA */
+.analyzer-cta {
+  padding: 100px 80px;
+  background: var(--cream);
+}
+
+.analyzer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.analyzer-text .section-eyebrow { color: var(--gold); }
+
+.analyzer-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 3vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.analyzer-text p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--mid);
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.analyzer-preview {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+}
+
+.preview-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 12px;
+}
+
+.preview-prompt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--mid);
+  margin-bottom: 20px;
+  line-height: 1.5;
+  padding: 16px;
+  background: var(--cream);
+  border-radius: 6px;
+}
+
+.preview-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.preview-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.tag-s { background: #e8f0ed; color: #2c4a3e; }
+.tag-d { background: #e8ecf4; color: #2a3d5c; }
+.tag-a { background: #f0e8ed; color: #4a2c3e; }
+
+/* ABOUT */
+.about {
+  padding: 100px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-photo-wrap {
+  position: relative;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.about-photo-accent {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 60%;
+  height: 60%;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.about-text .section-eyebrow { color: var(--gold); }
+
+.about-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 3vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--mid);
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+
+.about-text p:last-of-type { margin-bottom: 32px; }
+
+/* USE CASES */
+.use-cases {
+  background: var(--cream);
+  padding: 100px 80px;
+}
+
+.use-cases-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.case-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.case-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.case-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.case-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.case-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--mid);
+  font-weight: 300;
+}
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  padding: 56px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.footer-logo em { font-style: italic; color: var(--gold); }
+
+.footer-text {
+  font-size: 13px;
+  color: rgba(246,243,238,0.4);
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(246,243,238,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-left > * {
+  animation: fadeUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+.hero-eyebrow { animation-delay: 0.1s; }
+.hero h1 { animation-delay: 0.2s; }
+.hero-sub { animation-delay: 0.3s; }
+.hero-actions { animation-delay: 0.4s; }
+
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 60px 24px 48px; }
+  .hero-right { min-height: 400px; }
+  .hero-quote-block { padding: 48px 24px; }
+  .argument { grid-template-columns: 1fr; padding: 64px 24px; gap: 24px; }
+  .framework-section { padding: 64px 24px; }
+  .framework-grid { grid-template-columns: 1fr; }
+  .analyzer-cta { padding: 64px 24px; }
+  .analyzer-inner { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; padding: 64px 24px; }
+  .about-photo { max-width: 320px; }
+  .use-cases { padding: 64px 24px; }
+  .cases-grid { grid-template-columns: 1fr; }
+  footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="#">By <span>Design</span></a>
-  <span class="nav-tag">System Analyzer</span>
+  <a class="nav-logo" href="/"><em>By</em> Design</a>
+  <ul class="nav-links">
+    <li><a href="#framework">The Framework</a></li>
+    <li><a href="#about">About Colin</a></li>
+    <li><a href="#use-cases">Use Cases</a></li>
+    <li><a href="/analyzer" class="nav-cta">Try the Analyzer →</a></li>
+  </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">The By Design Framework</p>
-  <h1>What was this system<br><em>built to produce?</em></h1>
-  <p class="hero-sub">Most problems aren't people problems. They're design problems. Describe any situation — a team, an organization, a policy, a pattern — and this tool will diagnose it through the lens of Structure, Distribution, and Adaptation.</p>
-  <div class="framework-pills">
-    <span class="pill pill-s">Structure</span>
-    <span class="pill pill-d">Distribution</span>
-    <span class="pill pill-a">Adaptation</span>
-  </div>
-</section>
-
-<section class="input-section">
-  <div class="input-card">
-    <label class="input-label" for="situation">Describe your situation</label>
-    <p class="input-hint">Be specific. The more context you give, the sharper the diagnosis. Include the outcome you keep seeing — not the one you want.</p>
-    <div class="example-prompts">
-      <span class="example-chip" onclick="setExample(this)">My sales team keeps missing quota</span>
-      <span class="example-chip" onclick="setExample(this)">Our school's reading scores keep declining</span>
-      <span class="example-chip" onclick="setExample(this)">We can't seem to retain top employees</span>
-      <span class="example-chip" onclick="setExample(this)">Our nonprofit struggles to scale impact</span>
-      <span class="example-chip" onclick="setExample(this)">My city's homelessness rate keeps rising</span>
+  <div class="hero-left">
+    <p class="hero-eyebrow">A Framework by Colin Daymude</p>
+    <h1>By <em>Design</em></h1>
+    <p class="hero-sub">What if the outcomes you keep seeing — in your organization, your community, your life — aren't accidents? What if the system is working exactly as intended?</p>
+    <div class="hero-actions">
+      <a href="/analyzer" class="btn-primary">Try the Framework Analyzer →</a>
+      <a href="#framework" class="btn-outline">Learn More</a>
     </div>
-    <textarea id="situation" placeholder="Example: Our customer service team consistently receives low satisfaction scores. We've hired better people, run training programs, and changed managers twice..." maxlength="1200"></textarea>
-    <div class="submit-row">
-      <span class="char-count" id="charCount">0 / 1200</span>
-      <button class="analyze-btn" id="analyzeBtn" onclick="runAnalysis()">
-        <span>Analyze This System</span>
-        <span>→</span>
-      </button>
+  </div>
+  <div class="hero-right">
+    <div class="hero-quote-block">
+      <p class="hero-question">
+        What was this system
+        <strong>built to produce?</strong>
+      </p>
+      <div class="hero-pillars">
+        <div class="pillar">
+          <span class="pillar-num">01</span>
+          <div>
+            <div class="pillar-name">Structure</div>
+            <div class="pillar-def">The rules, roles, and constraints that define what's possible</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">02</span>
+          <div>
+            <div class="pillar-name">Distribution</div>
+            <div class="pillar-def">How resources, opportunity, and access are allocated</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">03</span>
+          <div>
+            <div class="pillar-name">Adaptation</div>
+            <div class="pillar-def">How the system responds to pressure and the need for change</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="error-state" id="errorState"></div>
-  </div>
-  <div class="loading-state" id="loadingState">
-    <div class="loading-spinner"></div>
-    <p class="loading-text" id="loadingText">Reading the architecture of your situation...</p>
   </div>
 </section>
 
-<section class="results-section" id="resultsSection">
-  <div class="results-header">
-    <p class="results-eyebrow">System Diagnosis</p>
-    <h2 class="results-title" id="resultsTitle"></h2>
-    <p class="results-situation" id="resultsSituation"></p>
-  </div>
-  <div class="diagnosis-summary" id="diagnosisSummary"></div>
-  <div class="framework-grid" id="frameworkGrid"></div>
-  <div class="verdict-card" id="verdictCard" style="display:none">
-    <p class="verdict-label">The Design Question</p>
-    <p class="verdict-text" id="verdictText"></p>
-  </div>
-  <div class="result-actions">
-    <button class="btn-secondary" onclick="resetAnalysis()">Analyze Another Situation</button>
-    <button class="btn-secondary" onclick="copyResults()">Copy Results</button>
+<!-- ARGUMENT -->
+<section class="argument" id="framework">
+  <div class="argument-label">The Core Argument</div>
+  <div class="argument-body">
+    <h2>Stop asking what's wrong with the people.<br><em>Start asking what the system was built to produce.</em></h2>
+    <p>When a team keeps underperforming, we blame the manager. When students fall behind, we blame the teachers. When communities stay stuck, we blame the residents. We locate the problem in the people — and we keep getting the same results.</p>
+    <p>Most outcomes — good and bad — are the predictable product of the systems that contain them. The Willis Tower doesn't stand because of exceptional steel. It stands because of how the structure is designed to distribute load and adapt under pressure. The same principle governs every human system.</p>
+    <p>Once you learn to see it, you can't unsee it.</p>
   </div>
 </section>
 
+<!-- FRAMEWORK -->
+<section class="framework-section">
+  <div class="framework-inner">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">The Framework</p>
+        <h2>Three dimensions of every system</h2>
+      </div>
+    </div>
+    <div class="framework-grid">
+      <div class="fw-card">
+        <p class="fw-num">01</p>
+        <h3 class="fw-title">Structure</h3>
+        <p class="fw-body">The rules, roles, incentives, physical arrangements, and constraints that define what is even possible within the system. Structure is the architecture — it operates whether anyone is conscious of it or not. It determines what the container encourages, permits, or makes impossible.</p>
+      </div>
+      <div class="fw-card">
+        <p class="fw-num">02</p>
+        <h3 class="fw-title">Distribution</h3>
+        <p class="fw-body">How resources, attention, opportunity, authority, and access are allocated across the system. Distribution determines who gets what — and therefore who can succeed within the current design. Unequal distribution is often invisible precisely because it is baked into the architecture.</p>
+      </div>
+      <div class="fw-card">
+        <p class="fw-num">03</p>
+        <h3 class="fw-title">Adaptation</h3>
+        <p class="fw-body">How the system responds to pressure, feedback, and the need for change. A well-designed system flexes under load and redistributes stress across the whole. A brittle system snaps. A system that cannot adapt will either collapse rigidly or drift into chaos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANALYZER CTA -->
+<section class="analyzer-cta">
+  <div class="analyzer-inner">
+    <div class="analyzer-text">
+      <p class="section-eyebrow">The By Design Analyzer</p>
+      <h2>Diagnose any system in minutes</h2>
+      <p>Describe a situation — a team, an organization, a policy, a pattern — and the Analyzer will diagnose it through the lens of Structure, Distribution, and Adaptation. It won't tell you what's wrong with your people. It will show you what the system was built to produce.</p>
+      <a href="/analyzer" class="btn-primary">Try the Analyzer →</a>
+    </div>
+    <div class="analyzer-preview">
+      <p class="preview-label">Sample Input</p>
+      <p class="preview-prompt">"We can't seem to retain top employees. Exit interviews say 'better opportunity' but that's vague. We offer competitive salaries and have a stated culture of growth and autonomy..."</p>
+      <p class="preview-label">Diagnosing through</p>
+      <div class="preview-tags">
+        <span class="preview-tag tag-s">Structure</span>
+        <span class="preview-tag tag-d">Distribution</span>
+        <span class="preview-tag tag-a">Adaptation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-photo-wrap">
+    <img src="data:image/jpeg;base64,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" alt="Colin Daymude" class="about-photo">
+    <div class="about-photo-accent"></div>
+  </div>
+  <div class="about-text">
+    <p class="section-eyebrow">About Colin Daymude</p>
+    <h2>Colin Daymude</h2>
+    <p>Colin Daymude is a systems thinker and keynote speaker with two decades of experience in marketing strategy and organizational behavior. He has spent his career studying why intelligent people in well-resourced organizations keep producing the same outcomes — and what it takes to change them.</p>
+    <p>The Structure, Distribution, Adaptation framework emerged from years of working with teams and organizations who had tried everything except examining the system itself. The core insight: behavior is the symptom. Architecture is the cause.</p>
+    <p>Colin speaks at leadership and strategy conferences on systems thinking and organizational design. The framework is currently being developed as a book and TED talk.</p>
+    <a href="mailto:colin@bydesign.design" class="btn-primary">Speaking Inquiries →</a>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="use-cases" id="use-cases">
+  <div class="use-cases-inner">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">The Framework in Practice</p>
+        <h2>Every system. Any domain.</h2>
+      </div>
+    </div>
+    <div class="cases-grid">
+      <a href="#" class="case-card">
+        <div class="case-icon">🏫</div>
+        <h3 class="case-title">Education & Student Outcomes</h3>
+        <p class="case-desc">Why do students in identical classrooms diverge so dramatically? The answer isn't talent. It's architecture.</p>
+      </a>
+      <a href="#" class="case-card">
+        <div class="case-icon">🏢</div>
+        <h3 class="case-title">Workplace Culture & Performance</h3>
+        <p class="case-desc">Culture isn't what you say it is. It's what your system rewards, tolerates, and makes structurally inevitable.</p>
+      </a>
+      <a href="#" class="case-card">
+        <div class="case-icon">⚖️</div>
+        <h3 class="case-title">Criminal Justice & Recidivism</h3>
+        <p class="case-desc">A 76% recidivism rate isn't a people problem. It's a design problem with a design solution.</p>
+      </a>
+      <a href="#" class="case-card">
+        <div class="case-icon">🏥</div>
+        <h3 class="case-title">Healthcare & Patient Outcomes</h3>
+        <p class="case-desc">The most powerful predictor of your health isn't your genes or your habits. It's your zip code.</p>
+      </a>
+      <a href="#" class="case-card">
+        <div class="case-icon">🌆</div>
+        <h3 class="case-title">Urban Policy & Community Change</h3>
+        <p class="case-desc">The fastest way to change how people behave is to change the environment they're behaving in.</p>
+      </a>
+      <a href="/analyzer" class="case-card">
+        <div class="case-icon">→</div>
+        <h3 class="case-title">Analyze Your System</h3>
+        <p class="case-desc">Describe any situation and get a full Structure, Distribution, and Adaptation diagnosis in minutes.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p class="footer-text">Part of <strong>By Design</strong> — a book about systems, outcomes, and the architecture of behavior. &nbsp;·&nbsp; Built on the Structure–Distribution–Adaptation framework.</p>
+  <div class="footer-logo"><em>By</em> Design</div>
+  <p class="footer-text">© 2025 Colin Daymude. All rights reserved.</p>
+  <ul class="footer-links">
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="/analyzer">Analyzer</a></li>
+    <li><a href="mailto:colin@bydesign.design">Contact</a></li>
+  </ul>
 </footer>
 
-<script>
-const SYSTEM_PROMPT = `You are the By Design System Analyzer — a diagnostic tool built on the framework from the book "By Design" by Colin Daymude.
-
-The core argument of By Design: Most outcomes — good and bad — are not the result of individual character, effort, or motivation. They are the predictable product of system design. When you see a persistent pattern of outcomes, stop asking "what's wrong with the people?" and start asking "what was this system built to produce?"
-
-THE FRAMEWORK:
-1. STRUCTURE: The rules, roles, incentives, physical arrangements, and constraints that define what is even possible within the system.
-2. DISTRIBUTION: How resources, attention, opportunity, authority, and access are allocated across the system.
-3. ADAPTATION: How the system responds to pressure, feedback, and change.
-
-THREE SYSTEM FAILURE STATES:
-- Too rigid: Brittle collapse
-- Too loose: Drift and chaos
-- By design: Producing exactly what it was built to produce
-
-YOUR TASK: When given a situation, provide a structured diagnosis in this exact JSON schema:
-{
-  "title": "A sharp, 6-10 word diagnostic title",
-  "summary": "2-3 sentence overall system diagnosis. Lead with the architectural reframe.",
-  "structure": {
-    "analysis": "2-3 sentences diagnosing structural conditions.",
-    "questions": ["Question 1", "Question 2", "Question 3"]
-  },
-  "distribution": {
-    "analysis": "2-3 sentences diagnosing resource and opportunity distribution.",
-    "questions": ["Question 1", "Question 2", "Question 3"]
-  },
-  "adaptation": {
-    "analysis": "2-3 sentences diagnosing the system's capacity to respond to feedback.",
-    "questions": ["Question 1", "Question 2", "Question 3"]
-  },
-  "designQuestion": "One powerful question that reframes this as a design problem."
-}
-
-TONE: Incisive, direct, non-judgmental. Write like Malcolm Gladwell thinks — specific and concrete, not abstract.
-IMPORTANT: Return ONLY valid JSON. No preamble, no markdown fences.`;
-
-const LOADING_MESSAGES = [
-  "Reading the architecture of your situation...",
-  "Mapping structure, distribution, and adaptation...",
-  "Separating design from behavior...",
-  "Building your system diagnosis..."
-];
-
-let loadingInterval;
-let lastSituation = '';
-
-document.getElementById('situation').addEventListener('input', function() {
-  document.getElementById('charCount').textContent = this.value.length + ' / 1200';
-});
-
-function setExample(el) {
-  const textarea = document.getElementById('situation');
-  const examples = {
-    'My sales team keeps missing quota': 'My sales team consistently misses its quarterly quota. We\'ve replaced the manager, run skills training, and increased the commission rate. Performance improves slightly for a month, then falls back. The team has talent — several reps have strong track records elsewhere — but something about this environment keeps producing the same results.',
-    'Our school\'s reading scores keep declining': 'Reading proficiency at our elementary school has dropped every year for the past four years. We\'ve brought in new curriculum, added reading specialists, and increased parent communication. Teachers are working harder than ever but the scores keep falling.',
-    'We can\'t seem to retain top employees': 'Our company has a retention problem at the senior level. We lose our best performers after 12-18 months, usually to competitors. Exit interviews cite \'better opportunity\' but that\'s vague. We offer competitive salaries and have a stated culture of growth and autonomy.',
-    'Our nonprofit struggles to scale impact': 'We run a workforce development nonprofit with strong results at small scale — about 200 participants per year. But every time we try to grow, our outcomes dilute. The model that works with 200 people seems to break at 500.',
-    'My city\'s homelessness rate keeps rising': 'Our city has increased its homeless services budget by 40% over three years. We have more shelter beds, more outreach workers, and more transitional housing than ever before. The visible homeless population has still increased.'
-  };
-  textarea.value = examples[el.textContent] || el.textContent;
-  document.getElementById('charCount').textContent = textarea.value.length + ' / 1200';
-  textarea.focus();
-}
-
-async function runAnalysis() {
-  const situation = document.getElementById('situation').value.trim();
-  if (!situation || situation.length < 30) {
-    showError('Please describe your situation in a bit more detail — at least a few sentences.');
-    return;
-  }
-
-  hideError();
-  lastSituation = situation;
-  document.getElementById('resultsSection').classList.remove('visible');
-  document.getElementById('analyzeBtn').disabled = true;
-
-  const loadingState = document.getElementById('loadingState');
-  loadingState.classList.add('visible');
-
-  let msgIndex = 0;
-  const loadingText = document.getElementById('loadingText');
-  loadingText.textContent = LOADING_MESSAGES[0];
-  loadingInterval = setInterval(() => {
-    msgIndex = (msgIndex + 1) % LOADING_MESSAGES.length;
-    loadingText.textContent = LOADING_MESSAGES[msgIndex];
-  }, 2200);
-
-  try {
-    const response = await fetch('/.netlify/functions/analyze', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: 'Please analyze this situation through the By Design framework:\n\n' + situation }]
-      })
-    });
-
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error?.message || 'API error');
-
-    const rawText = data.content.map(b => b.text || '').join('');
-    const clean = rawText.replace(/```json|```/g, '').trim();
-    const result = JSON.parse(clean);
-
-    clearInterval(loadingInterval);
-    loadingState.classList.remove('visible');
-    document.getElementById('analyzeBtn').disabled = false;
-    renderResults(result, situation);
-
-  } catch (err) {
-    clearInterval(loadingInterval);
-    loadingState.classList.remove('visible');
-    document.getElementById('analyzeBtn').disabled = false;
-    showError('Something went wrong with the analysis. Please try again in a moment.');
-    console.error(err);
-  }
-}
-
-function renderResults(result, situation) {
-  document.getElementById('resultsTitle').textContent = result.title || 'System Diagnosis';
-  document.getElementById('resultsSituation').textContent = '"' + situation.substring(0, 120) + (situation.length > 120 ? '...' : '') + '"';
-  document.getElementById('diagnosisSummary').innerHTML = result.summary || '';
-
-  const grid = document.getElementById('frameworkGrid');
-  grid.innerHTML = '';
-
-  const dimensions = [
-    { key: 'structure', label: 'Structure', def: "The rules, roles, incentives, and constraints that define what's possible", cls: 'structure', n: '01' },
-    { key: 'distribution', label: 'Distribution', def: 'How resources, opportunity, and access are allocated across the system', cls: 'distribution', n: '02' },
-    { key: 'adaptation', label: 'Adaptation', def: 'How the system responds to pressure, feedback, and the need for change', cls: 'adaptation', n: '03' }
-  ];
-
-  dimensions.forEach(dim => {
-    const d = result[dim.key] || {};
-    const card = document.createElement('div');
-    card.className = 'framework-card ' + dim.cls;
-    card.innerHTML =
-      '<div class="card-header">' +
-        '<span class="card-number">' + dim.n + '</span>' +
-        '<h3 class="card-title">' + dim.label + '</h3>' +
-      '</div>' +
-      '<p class="card-definition">' + dim.def + '</p>' +
-      '<p class="card-analysis">' + (d.analysis || '') + '</p>' +
-      '<p class="card-questions-label">Reframe Questions</p>' +
-      '<ul class="card-questions">' +
-        (d.questions || []).map(q => '<li>' + q + '</li>').join('') +
-      '</ul>';
-    grid.appendChild(card);
-  });
-
-  if (result.designQuestion) {
-    document.getElementById('verdictText').textContent = result.designQuestion;
-    document.getElementById('verdictCard').style.display = 'block';
-  }
-
-  const section = document.getElementById('resultsSection');
-  section.classList.add('visible');
-  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function resetAnalysis() {
-  document.getElementById('resultsSection').classList.remove('visible');
-  document.getElementById('situation').value = '';
-  document.getElementById('charCount').textContent = '0 / 1200';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function copyResults() {
-  const title = document.getElementById('resultsTitle').textContent;
-  const summary = document.getElementById('diagnosisSummary').textContent;
-  const cards = document.querySelectorAll('.framework-card');
-  let text = 'BY DESIGN — SYSTEM DIAGNOSIS\n\n' + title + '\n\nSituation: "' + lastSituation + '"\n\nDIAGNOSIS:\n' + summary + '\n\n';
-  cards.forEach(card => {
-    const t = card.querySelector('.card-title')?.textContent || '';
-    const a = card.querySelector('.card-analysis')?.textContent || '';
-    const qs = Array.from(card.querySelectorAll('.card-questions li')).map(li => '→ ' + li.textContent);
-    text += t.toUpperCase() + '\n' + a + '\n\nReframe Questions:\n' + qs.join('\n') + '\n\n';
-  });
-  const verdict = document.getElementById('verdictText').textContent;
-  if (verdict) text += 'THE DESIGN QUESTION:\n' + verdict;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = event.target;
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy Results', 2000);
-  });
-}
-
-function showError(msg) {
-  const el = document.getElementById('errorState');
-  el.textContent = msg;
-  el.classList.add('visible');
-}
-
-function hideError() {
-  document.getElementById('errorState').classList.remove('visible');
-}
-</script>
 </body>
 </html>
