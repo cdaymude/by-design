@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Recidivism Rates Don't Move — By Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --black: #0c0b09; --white: #f6f3ee; --cream: #ede9e0; --gold: #b8924a; --gold-light: #d4aa6a; --mid: #5c5650; --light: #9c9690; --border: #d8d2c8; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(246,243,238,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--black); text-decoration: none; }
+.nav-logo em { font-style: italic; color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--black); }
+.nav-cta { background: var(--black); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; }
+.article-hero { padding-top: 64px; background: var(--black); }
+.article-hero-inner { max-width: 760px; margin: 0 auto; padding: 72px 48px 64px; }
+.article-category { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.article-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+.article-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 60px); font-weight: 700; line-height: 1.1; color: var(--white); margin-bottom: 24px; }
+.article-hero h1 em { font-style: italic; color: var(--gold-light); }
+.article-deck { font-size: 18px; line-height: 1.7; color: rgba(246,243,238,0.65); font-weight: 300; max-width: 620px; }
+.article-body { max-width: 760px; margin: 0 auto; padding: 64px 48px 80px; }
+.article-body p { font-size: 17px; line-height: 1.85; color: var(--mid); font-weight: 300; margin-bottom: 24px; }
+.article-body p strong { color: var(--black); font-weight: 600; }
+.article-body p:first-child { font-size: 19px; color: var(--black); font-weight: 400; }
+.article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; line-height: 1.2; color: var(--black); margin: 48px 0 16px; }
+.article-body h2 em { font-style: italic; color: var(--gold); }
+.stat-callout { background: var(--cream); border-left: 3px solid var(--gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+.stat-callout p { font-size: 15px; margin-bottom: 0; color: var(--black); }
+.stat-callout strong { font-size: 22px; display: block; margin-bottom: 6px; color: var(--gold); font-family: 'Cormorant Garamond', serif; }
+.success-failure { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+.sf-card { padding: 24px; border-radius: 8px; }
+.sf-card.failure { background: #fff0f0; border: 1px solid #f0d0d0; }
+.sf-card.success { background: #f0f8f0; border: 1px solid #c0ddc0; }
+.sf-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
+.sf-card.failure .sf-label { color: #c0392b; }
+.sf-card.success .sf-label { color: #27ae60; }
+.sf-card p { font-size: 14px; line-height: 1.6; color: var(--black); margin-bottom: 0; font-weight: 400; }
+.design-question { background: var(--black); color: var(--white); padding: 40px 48px; margin: 48px 0; border-radius: 12px; text-align: center; }
+.design-question .dq-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.design-question p { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 32px); font-style: italic; line-height: 1.35; color: var(--white); margin-bottom: 0; font-weight: 400; }
+.analyzer-prompt { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 36px; margin-top: 48px; text-align: center; }
+.analyzer-prompt h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+.analyzer-prompt p { font-size: 16px; color: var(--mid); margin-bottom: 20px; font-weight: 300; }
+.btn-primary { background: var(--black); color: var(--white); padding: 14px 32px; border-radius: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+.btn-primary:hover { background: var(--gold); }
+footer { background: var(--black); padding: 40px 80px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); }
+.footer-logo em { font-style: italic; color: var(--gold); }
+.footer-text { font-size: 13px; color: rgba(246,243,238,0.4); }
+@media (max-width: 700px) { nav { padding: 0 20px; } .nav-links { display: none; } .article-hero-inner { padding: 48px 20px 40px; } .article-body { padding: 40px 20px 60px; } .success-failure { grid-template-columns: 1fr; } .design-question { padding: 28px 20px; } footer { padding: 32px 20px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><em>By</em> Design</a>
+  <ul class="nav-links">
+    <li><a href="/#framework">The Framework</a></li>
+    <li><a href="/#about">About Colin</a></li>
+    <li><a href="/#use-cases">Use Cases</a></li>
+    <li><a href="/analyzer" class="nav-cta">System Analyzer →</a></li>
+  </ul>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <p class="article-category">Criminal Justice & Recidivism</p>
+    <h1>Why Recidivism Rates<br><em>Don't Move</em></h1>
+    <p class="article-deck">82% of people released from state prison are rearrested within ten years. We've built more programs, hired more counselors, and expanded reentry services. The number barely budges. The problem isn't the people leaving prison. It's what they're released into.</p>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>On the day a person is released from a state prison in the United States, they typically receive a bus ticket, a small amount of cash, and the clothes they came in with. They are released, on average, into a world where formerly incarcerated people face a 27% unemployment rate. Where housing applications ask about criminal history. Where professional licenses are revoked. Where the social networks that support job attainment, stable housing, and community belonging have been severed for months or years. The system they re-enter was not designed to receive them. And then, when 82% of them are rearrested within ten years, we call it a recidivism problem.</p>
+
+  <p>The framing matters enormously. A recidivism problem implies that the people leaving prison are failing. A design problem implies that the container they're released into was built to produce that outcome. The data strongly supports the second interpretation.</p>
+
+  <div class="stat-callout">
+    <strong>82% rearrested within 10 years</strong>
+    <p>According to the Bureau of Justice Statistics, 82% of people released from state prison are arrested at least once in the decade following release. Yet that same population — given access to a bachelor's degree while incarcerated — has a recidivism rate of just 5.6%, according to RAND Corporation research. Same people. Different architecture.</p>
+  </div>
+
+  <h2>What the System Is Actually Built to Produce</h2>
+
+  <p>The standard reentry system operates on a simple theory: give people skills and motivation, and they'll stay out of prison. Job training programs, substance abuse counseling, and vocational certifications have been the primary tools for decades. The problem is that the research on these programs is almost uniformly disappointing. Employment-focused reentry programs, in particular, have shown little consistent ability to reduce recidivism. The National Institute of Justice's own review concluded bluntly: "employment programs are not a panacea."</p>
+
+  <p>The reason isn't that the programs are poorly run. It's that they're operating on a theory of change that misidentifies the problem. The barriers to successful reentry are structural: <strong>housing policies that exclude people with criminal records, licensing laws that bar them from entire industries, supervision conditions that make employment logistically impossible, and the absence of any coordinated infrastructure for receiving people back into communities.</strong> You can teach someone to write a resume, but if no employer will hire them and no landlord will rent to them, the resume is beside the point.</p>
+
+  <h2>The Education Exception — and What It Reveals</h2>
+
+  <p>The most striking data point in the recidivism literature is the education gradient. RAND Corporation's meta-analysis found that the average 70-80% rearrest rate drops to 50% when a person completes some high school while incarcerated. It falls to 13.7% for an associate degree. To 5.6% for a bachelor's degree. And to effectively 0% for those who earn a master's degree while incarcerated.</p>
+
+  <p>This is not primarily a motivational finding. It's a structural one. Higher education changes a person's access to the labor market, their social network, their sense of possibility, and the resources available to them on release. It restructures what the reentry environment looks like. The intervention works not because it changes the person's character but because it changes the system of opportunity they're released into. It is, at its core, a design intervention dressed up as an educational one.</p>
+
+  <div class="success-failure">
+    <div class="sf-card failure">
+      <p class="sf-label">Design Failure</p>
+      <p>The standard U.S. reentry model releases people with a bus ticket, minimal cash, and supervision conditions that require regular check-ins, restrict travel, and often prohibit associating with other formerly incarcerated people — eliminating the social networks that could support reintegration. The three-year return-to-prison rate for this model: historically around 50%.</p>
+    </div>
+    <div class="sf-card success">
+      <p class="sf-label">Design Success</p>
+      <p>Delancey Street Foundation in San Francisco houses formerly incarcerated residents for an average of four years in a community where they run businesses, learn trades, mentor each other, and build social capital. No professional staff. The recidivism rate among graduates is a fraction of the national average. It works because it redesigns the container — not because it delivers better programming inside the old one.</p>
+    </div>
+  </div>
+
+  <h2>Why the Number Barely Moves</h2>
+
+  <p>State-level recidivism rates have improved — the three-year return-to-prison rate has fallen from roughly 50% in 2005 to 39% in 2012, a meaningful reduction. But this improvement tracks closely with policy changes in how supervision violations are handled, not with changes in the structural conditions people re-enter. States that stopped automatically reincarcerated people for technical supervision violations saw large drops in their recidivism numbers. The underlying employment, housing, and social reintegration landscape remained largely unchanged.</p>
+
+  <p>The states making the most progress — those investing in housing as a platform for reentry, expanding educational access, and building coordinated community infrastructure — share a common feature: they stopped treating recidivism as an individual outcome and started treating it as a systems outcome. They asked not "what's wrong with the people leaving prison?" but "what was this reentry system built to produce?" And they redesigned accordingly.</p>
+
+  <div class="design-question">
+    <p class="dq-label">The Design Question</p>
+    <p>"What would a system actually designed to successfully reintegrate people look like — and how different is it from what we've built?"</p>
+  </div>
+
+  <p>The 82% rearrest rate is not a reflection of the character of people leaving prison. It is a reflection of the architecture that receives them. The bus ticket and the cash are not an oversight. They are a design statement — a declaration of what the system believes its obligation ends at. Until that design changes, the number won't.</p>
+
+  <div class="analyzer-prompt">
+    <h3>What is your criminal justice system built to produce?</h3>
+    <p>Describe the recidivism or reentry challenge you're seeing and get a structural diagnosis through the By Design framework.</p>
+    <a href="/analyzer" class="btn-primary">Analyze Your System →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo"><em>By</em> Design</div>
+  <p class="footer-text">© 2025 Colin Daymude. All rights reserved.</p>
+</footer>
+</body>
+</html>
