@@ -315,6 +315,50 @@ nav {
   padding-top: 8px;
 }
 
+.argument-label-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+
+.argument-quote {
+  border-left: 2px solid var(--gold);
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.aq-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  line-height: 0.6;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.aq-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--black);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.aq-attr {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
 .argument-body h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(32px, 3vw, 48px);
@@ -744,11 +788,18 @@ footer {
 
 <!-- ARGUMENT -->
 <section class="argument" id="framework">
-  <div class="argument-label">The Core Argument</div>
+  <div class="argument-label">
+    <p class="argument-label-text">The Core Argument</p>
+    <div class="argument-quote">
+      <p class="aq-mark">"</p>
+      <p class="aq-text">What if we stopped treating outliers like exceptions and started using them as instructions?</p>
+      <p class="aq-attr">Colin Daymude</p>
+    </div>
+  </div>
   <div class="argument-body">
     <h2>Stop asking what's wrong with the people.<br><em>Start asking what the system was built to produce.</em></h2>
-    <p>When a team keeps underperforming, we blame the manager. When students fall behind, we blame the teachers. When communities stay stuck, we blame the residents. We locate the problem in the people — and we keep getting the same results.</p>
-    <p>Most outcomes — good and bad — are the predictable product of the systems that contain them. The Willis Tower doesn't stand because of exceptional steel. It stands because of how the structure is designed to distribute load and adapt under pressure. The same principle governs every human system.</p>
+    <p>When a team keeps underperforming, we blame the manager. When students fall behind, we blame the teachers. When communities stay stuck, we blame the residents. We locate the problem in the people and we keep getting the same results.</p>
+    <p>Most outcomes, good and bad, are the predictable product of the systems that contain them. The Willis Tower doesn't stand because of exceptional steel. It stands because of how the structure is designed to distribute load and adapt under pressure. The same principle governs every human system.</p>
     <p>Once you learn to see it, you can't unsee it.</p>
   </div>
 </section>
