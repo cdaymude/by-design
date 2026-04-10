@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gun Violence Is a Design Problem — By Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --black: #0c0b09; --white: #f6f3ee; --cream: #ede9e0; --gold: #b8924a; --gold-light: #d4aa6a; --mid: #5c5650; --light: #9c9690; --border: #d8d2c8; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(246,243,238,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--black); text-decoration: none; }
+.nav-logo em { font-style: italic; color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--black); }
+.nav-cta { background: var(--black); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; }
+.article-hero { padding-top: 64px; background: var(--black); }
+.article-hero-inner { max-width: 760px; margin: 0 auto; padding: 72px 48px 64px; }
+.article-category { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.article-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+.article-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 60px); font-weight: 700; line-height: 1.1; color: var(--white); margin-bottom: 24px; }
+.article-hero h1 em { font-style: italic; color: var(--gold-light); }
+.article-deck { font-size: 18px; line-height: 1.7; color: rgba(246,243,238,0.65); font-weight: 300; max-width: 620px; }
+.article-body { max-width: 760px; margin: 0 auto; padding: 64px 48px 80px; }
+.article-body p { font-size: 17px; line-height: 1.85; color: var(--mid); font-weight: 300; margin-bottom: 24px; }
+.article-body p strong { color: var(--black); font-weight: 600; }
+.article-body p:first-child { font-size: 19px; color: var(--black); font-weight: 400; }
+.article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; line-height: 1.2; color: var(--black); margin: 48px 0 16px; }
+.article-body h2 em { font-style: italic; color: var(--gold); }
+.stat-callout { background: var(--cream); border-left: 3px solid var(--gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+.stat-callout p { font-size: 15px; margin-bottom: 0; color: var(--black); }
+.stat-callout strong { font-size: 22px; display: block; margin-bottom: 6px; color: var(--gold); font-family: 'Cormorant Garamond', serif; }
+.success-failure { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+.sf-card { padding: 24px; border-radius: 8px; }
+.sf-card.failure { background: #fff0f0; border: 1px solid #f0d0d0; }
+.sf-card.success { background: #f0f8f0; border: 1px solid #c0ddc0; }
+.sf-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
+.sf-card.failure .sf-label { color: #c0392b; }
+.sf-card.success .sf-label { color: #27ae60; }
+.sf-card p { font-size: 14px; line-height: 1.6; color: var(--black); margin-bottom: 0; font-weight: 400; }
+.design-question { background: var(--black); color: var(--white); padding: 40px 48px; margin: 48px 0; border-radius: 12px; text-align: center; }
+.design-question .dq-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.design-question p { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 32px); font-style: italic; line-height: 1.35; color: var(--white); margin-bottom: 0; font-weight: 400; }
+.analyzer-prompt { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 36px; margin-top: 48px; text-align: center; }
+.analyzer-prompt h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+.analyzer-prompt p { font-size: 16px; color: var(--mid); margin-bottom: 20px; font-weight: 300; }
+.btn-primary { background: var(--black); color: var(--white); padding: 14px 32px; border-radius: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+.btn-primary:hover { background: var(--gold); }
+footer { background: var(--black); padding: 40px 80px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); }
+.footer-logo em { font-style: italic; color: var(--gold); }
+.footer-text { font-size: 13px; color: rgba(246,243,238,0.4); }
+@media (max-width: 700px) { nav { padding: 0 20px; } .nav-links { display: none; } .article-hero-inner { padding: 48px 20px 40px; } .article-body { padding: 40px 20px 60px; } .success-failure { grid-template-columns: 1fr; } .design-question { padding: 28px 20px; } footer { padding: 32px 20px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><em>By</em> Design</a>
+  <ul class="nav-links">
+    <li><a href="/#framework">The Framework</a></li>
+    <li><a href="/#about">About Colin</a></li>
+    <li><a href="/#use-cases">Use Cases</a></li>
+    <li><a href="/analyzer" class="nav-cta">System Analyzer →</a></li>
+  </ul>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <p class="article-category">Public Safety & Policy</p>
+    <h1>Gun Violence Is<br><em>a Design Problem</em></h1>
+    <p class="article-deck">The United States has the highest rate of community gun violence of any developed democracy. We've spent decades arguing about people — the shooters, the victims, the lawmakers. The argument has produced almost nothing. The design argument might.</p>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>About half of all gun violence in American cities can be traced to 5% of city blocks. This is not a random distribution. Those blocks are not populated by unusually violent people who happen to have clustered together. They are neighborhoods shaped by decades of structural decisions: redlining policies that concentrated poverty and severed intergenerational wealth, disinvestment in schools and infrastructure, the removal of economic opportunity, and the systematic underfunding of the community institutions — churches, nonprofits, recreation centers — that interrupt cycles of violence. The geography of gun violence is, almost precisely, the geography of structural neglect.</p>
+
+  <p>In 2024, the U.S. Surgeon General declared gun violence a public health crisis. 2023 recorded the third-highest number of gun-related deaths ever reported in the United States. Black Americans face gun homicide rates 13 times higher than their white counterparts. These disparities are not explained by individual behavior. They are explained by the systems those individuals inhabit.</p>
+
+  <div class="stat-callout">
+    <strong>5% of city blocks</strong>
+    <p>account for approximately half of all gun violence in American cities, according to research cited by the DOJ. This concentration is not random — it maps almost exactly onto neighborhoods shaped by decades of structural disinvestment, housing segregation, and the removal of economic opportunity. The violence is clustered where the structural failures are deepest.</p>
+  </div>
+
+  <h2>Why the Debate Goes Nowhere</h2>
+
+  <p>The American gun violence debate has two primary positions, and they share a common flaw: both locate the problem in people rather than systems. The conservative argument focuses on individual moral failure — mental illness, family breakdown, personal responsibility. The progressive argument focuses on individual access — background checks, magazine limits, waiting periods. Both are operating on the assumption that if you change the person or change what the person can access, the outcome will change.</p>
+
+  <p>There is evidence that access restrictions work at the margins — states with stricter gun laws have lower gun death rates on average. Massachusetts, the state with the lowest gun death rate in the country, has comprehensive licensing requirements, universal background checks, and an extreme risk protection law. These structural features matter. But they explain only part of the variance. Mississippi and Massachusetts differ not just in their gun laws but in their poverty rates, their investment in community infrastructure, their housing stability, and the health of their social institutions. The structural conditions that produce violence run deeper than the laws that govern firearm access.</p>
+
+  <h2>What Works — and Why</h2>
+
+  <p>The interventions with the strongest evidence base share a common feature: they treat gun violence as a community design problem, not an individual character problem. Community Violence Intervention programs — which deploy credible messengers, often formerly incarcerated people, to interrupt conflicts and connect high-risk individuals to services — have produced measurable reductions in shootings in cities including Chicago, Oakland, and Baltimore.</p>
+
+  <p>Los Angeles's Gang Reduction and Youth Development program took a structural approach: investing in youth employment, mental health services, community centers, and conflict mediation in the 22 neighborhoods with the highest violence rates. Even after COVID-era increases, Los Angeles homicides remain more than 20% below their pre-program average. <strong>The program didn't change the people. It changed what the neighborhoods were built to offer them.</strong></p>
+
+  <p>A 2017 review of community programs across 264 cities found that for every 10 additional nonprofit crime-reduction programs per 100,000 residents, homicides fell by 9% and violent crime fell by 6%. The structural variable — community institutional density — predicted violence reduction better than policing strategy or gun law stringency. Communities with more institutional resources to absorb conflict produce less violence. That's a design finding.</p>
+
+  <div class="success-failure">
+    <div class="sf-card failure">
+      <p class="sf-label">Design Failure</p>
+      <p>Decades of "tough on crime" policing concentrated enforcement in the same 5% of city blocks without addressing the structural conditions that produced the violence. Crime would fall during intensive policing periods, then return. The underlying architecture — concentrated poverty, absent economic opportunity, depleted community institutions — regenerated the conditions for violence as reliably as a garden produces weeds when you pull them without changing the soil.</p>
+    </div>
+    <div class="sf-card success">
+      <p class="sf-label">Design Success</p>
+      <p>Hospital-based Violence Intervention Programs identify victims of gun violence in the ER — the moment of highest receptivity — and connect them to case management, employment support, and behavioral health services before discharge. The strongest risk factor for gun violence is prior violent injury; HVIPs interrupt that cycle at the structural level. Cities with mature HVIP programs have seen injury recidivism rates drop significantly from the baseline of 45% within five years.</p>
+    </div>
+  </div>
+
+  <h2>The Adaptation Problem</h2>
+
+  <p>One reason gun violence is so resistant to intervention is that the systems producing it are themselves adaptive. Communities experiencing concentrated violence develop informal structures — social norms around retaliation, economic structures built around illegal markets, distrust of institutions — that serve real functions within the environment. These aren't irrational responses. They are rational adaptations to a structural reality where legitimate economic opportunity is scarce, institutional trust has been repeatedly violated, and physical safety depends on social reputation.</p>
+
+  <p>This is why interventions that change behavior without changing structure tend not to hold. You can counsel a 19-year-old out of a gang, but if the neighborhood he returns to offers no employment, no safety, and no alternative social network, the structural pressure that drove him into the gang in the first place is still operating. The system adapted him. A different system will produce a different adaptation.</p>
+
+  <p>The communities making the most sustained progress against gun violence — Cure Violence sites, cities with mature community violence intervention programs, neighborhoods with strong nonprofit density — have one thing in common: they changed what the community was built to offer. They didn't just remove the bad options. They built the good ones.</p>
+
+  <div class="design-question">
+    <p class="dq-label">The Design Question</p>
+    <p>"If we mapped the structural conditions of every high-violence neighborhood in America — the poverty rates, the school funding, the institutional density, the economic opportunity — what would we find that the violence debate has been missing?"</p>
+  </div>
+
+  <p>Gun violence in America is not a mystery. It is a map. It follows the contours of structural disinvestment with remarkable precision. The argument about guns and people has produced decades of stalemate. The argument about design — about what these communities were built to offer and what we could build instead — is just beginning. It is, at minimum, a more honest conversation. And it may be the only one with a real answer at the end of it.</p>
+
+  <div class="analyzer-prompt">
+    <h3>What is your community's violence system built to produce?</h3>
+    <p>Describe the gun violence or public safety challenge in your community and get a structural diagnosis through the By Design framework.</p>
+    <a href="/analyzer" class="btn-primary">Analyze Your System →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo"><em>By</em> Design</div>
+  <p class="footer-text">© 2025 Colin Daymude. All rights reserved.</p>
+</footer>
+</body>
+</html>
