@@ -37,18 +37,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 48px;
+    padding: 0 48px;
+    height: 64px;
     border-bottom: 1px solid var(--border);
-    background: var(--white);
+    background: rgba(245,244,240,0.92);
+    backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
     z-index: 100;
   }
 
   .nav-logo {
-    font-size: 18px;
+    font-family: 'Georgia', serif;
+    font-size: 20px;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    font-style: italic;
+    letter-spacing: 0.02em;
     color: var(--black);
     text-decoration: none;
   }
@@ -57,12 +61,41 @@
     color: var(--accent);
   }
 
-  .nav-tag {
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.15em;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--light);
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .nav-active {
+    color: var(--black) !important;
+  }
+
+  .nav-cta {
+    background: var(--black);
+    color: var(--white) !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
   }
 
   /* HERO */
@@ -536,8 +569,13 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="#">By <span>Design</span></a>
-  <span class="nav-tag">System Analyzer</span>
+  <a class="nav-logo" href="/">By <span>Design</span></a>
+  <ul class="nav-links">
+    <li><a href="/#framework">The Framework</a></li>
+    <li><a href="/#about">About Colin</a></li>
+    <li><a href="/#use-cases">Use Cases</a></li>
+    <li><a href="/analyzer" class="nav-active nav-cta">System Analyzer →</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
