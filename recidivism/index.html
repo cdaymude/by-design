@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gun Violence Is a Design Problem - By Design</title>
+<title>Recidivism Is a Design Problem - By Design</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -32,6 +32,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .article-body p:first-child { font-size: 19px; color: var(--black); font-weight: 400; }
 .article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; line-height: 1.2; color: var(--black); margin: 48px 0 16px; }
 .article-body h2 em { font-style: italic; color: var(--gold); }
+.dimension { margin-bottom: 32px; }
+.dimension-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 12px; }
+.dimension-number { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--gold); }
+.dimension-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--black); }
 .stat-callout { background: var(--cream); border-left: 3px solid var(--gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 8px 8px 0; }
 .stat-callout p { font-size: 15px; margin-bottom: 0; color: var(--black); }
 .stat-callout strong { font-size: 22px; display: block; margin-bottom: 6px; color: var(--gold); font-family: 'Cormorant Garamond', serif; }
@@ -57,6 +61,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .design-question { background: var(--black); color: var(--white); padding: 40px 48px; margin: 48px 0; border-radius: 12px; text-align: center; }
 .design-question .dq-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 .design-question p { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 32px); font-style: italic; line-height: 1.35; color: var(--white); margin-bottom: 0; font-weight: 400; }
+.pullquote { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; line-height: 1.5; color: var(--black); border-left: 2px solid var(--gold); padding: 8px 0 8px 24px; margin: 32px 0; font-weight: 400; }
 .analyzer-prompt { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 36px; margin-top: 48px; text-align: center; }
 .analyzer-prompt h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
 .analyzer-prompt p { font-size: 16px; color: var(--mid); margin-bottom: 20px; font-weight: 300; }
@@ -82,85 +87,133 @@ footer { background: var(--black); padding: 40px 80px; display: flex; align-item
 
 <div class="article-hero">
   <div class="article-hero-inner">
-    <p class="article-category">Public Safety & Policy</p>
-    <h1>Gun Violence Is<br><em>a Design Problem</em></h1>
-    <p class="article-deck">The United States has the highest rate of community gun violence of any developed democracy. We've spent decades arguing about people: the shooters, the victims, the lawmakers. The argument has produced almost nothing. The design argument might.</p>
+    <p class="article-category">Criminal Justice &amp; Reentry</p>
+    <h1>Recidivism Is<br><em>a Design Problem</em></h1>
+    <p class="article-deck">About 600,000 people are released from American prisons every year. Within five years, roughly seven out of ten will be arrested again. We have called that a failure for forty years. It is time to consider that it might not be one.</p>
   </div>
 </div>
 
 <div class="article-body">
 
-  <p>Start with two states. Mississippi has a gun death rate of 29.4 per 100,000 people. Massachusetts has a gun death rate of 3.7 per 100,000. Someone living in Mississippi is eight times more likely to die from gun violence than someone living in Massachusetts. That gap has been consistent for years, and it sits at the center of every serious debate about gun policy in America.</p>
+  <p>About 600,000 people leave American prisons every year. Within five years, about 71% will be arrested again. About 46% will return to prison. The numbers have moved a little over four decades, but not much. We keep measuring them. We keep being surprised by them.</p>
 
-  <p>The standard explanation is gun laws. Massachusetts has comprehensive licensing requirements, universal background checks, and an extreme risk protection law. Mississippi has done the opposite: in 2016, the state passed constitutional carry legislation, eliminating the permit requirement for concealed handguns entirely. No permit, no background check for private sales, no waiting period, no registration, no assault weapons ban. Mississippi did not just have weak gun laws. It legislatively codified the elimination of structural oversight as a policy position.</p>
+  <p>The conventional explanation is that the system is broken. That reentry is failing. That people are falling through the cracks. The conventional response is more programs, more accountability, more reentry services, more training. The number rarely moves.</p>
+
+  <p>But a system that keeps producing the same outcome for forty years is not failing. It is doing what it was designed to do. The question is what it was designed to do.</p>
+
+  <p>The easy explanation is character. People who go to prison are people who do crime. We are surprised when they do crime again, but we should not be. They were already that kind of person.</p>
+
+  <p>That story leaves out the design.</p>
+
+  <p>In the 1980s, Norway had a recidivism rate of about 70%. Roughly the same as the United States today. Norwegian prisons were retributive, harsh, isolating, and built around the same logic that built American prisons. People came out, mostly, the same way they went in.</p>
+
+  <p>Norway then made a choice that the United States has not. It redesigned its prison system around what it calls the principle of normality. The punishment is the loss of liberty. Everything else stays. Prisoners can vote. Officers train as mentors, not guards. The maximum sentence is 21 years. Cells are private rooms with desks, lamps, and full windows. People released from Norwegian prisons re-enter the same broader social safety net that supports every Norwegian citizen.</p>
+
+  <p>Norway&rsquo;s recidivism rate is now between 20% and 25%, depending on how it is measured.</p>
+
+  <p>The same range of human beings, the same range of crisis and addiction and grievance, run through two different system designs, produce two radically different outcomes.</p>
 
   <div class="comparison-block">
     <div class="comparison-side">
-      <p class="comparison-state">Massachusetts</p>
-      <p class="comparison-stat">3.7</p>
-      <p class="comparison-label">gun deaths per 100,000 people (2023)</p>
-      <p class="comparison-detail">Comprehensive licensing, universal background checks, extreme risk protection law, no permitless carry. Lowest gun death rate in the continental United States.</p>
+      <p class="comparison-state">Norway</p>
+      <p class="comparison-stat">~20%</p>
+      <p class="comparison-label">reconviction within 2 years of release</p>
+      <p class="comparison-detail">Built around the principle of normality. Prisoners retain voting rights, family contact, education access. Officers trained as mentors. Maximum sentence 21 years. Recidivism dropped from approximately 70% in the 1980s through deliberate redesign.</p>
     </div>
     <div class="comparison-side dark">
-      <p class="comparison-state">Mississippi</p>
-      <p class="comparison-stat">29.4</p>
-      <p class="comparison-label">gun deaths per 100,000 people (2023)</p>
-      <p class="comparison-detail">Constitutional carry enacted 2016. No permit, background check, or registration required for private gun sales. No assault weapons ban. No waiting period. Highest gun death rate in the nation.</p>
+      <p class="comparison-state">United States</p>
+      <p class="comparison-stat">71%</p>
+      <p class="comparison-label">rearrest within 5 years of release (BJS, 2012 cohort)</p>
+      <p class="comparison-detail">Long sentences. Limited programming. 44,000 collateral consequences imposed by federal and state law on people with criminal records. Reentry into the same neighborhoods and conditions that produced incarceration in the first place.</p>
     </div>
   </div>
 
-  <p>But here is where the design argument becomes more interesting, and more uncomfortable, than either side of the gun debate typically allows. Gun laws explain part of the gap between these two states. They do not explain all of it. Mississippi and Massachusetts also differ sharply in their poverty rates, their investment in community infrastructure, their housing stability, and the health of their social institutions. The structural conditions that produce violence run deeper than the laws that govern firearm access.</p>
+  <p>This is the part the recidivism debate keeps missing. The conversation is almost always about people. Why did this person re-offend? Was the program effective? Did they make better choices? But individuals are the inputs. The system is what determines the output.</p>
 
   <div class="stat-callout">
-    <strong>5% of city blocks</strong>
-    <p>account for approximately half of all gun violence in American cities, according to research cited by the DOJ. This concentration is not random. It maps almost exactly onto neighborhoods shaped by decades of structural disinvestment, housing segregation, and the removal of economic opportunity. The violence is clustered where the structural failures are deepest.</p>
+    <strong>44,000 collateral consequences</strong>
+    <p>are imposed by federal and state law on people with criminal records in the United States. Restrictions on employment, housing, voting, occupational licensing, professional certifications, government benefits, custody, and travel. Most are lifetime. Released prisoners are not returning to a clean slate. They are returning to a structure deliberately designed to make legitimate participation harder than crime.</p>
   </div>
+
+  <p class="pullquote">We have a system that incarcerates people. We do not have a system that reintegrates them. Those are not the same thing.</p>
 
   <h2>Why the Debate Goes Nowhere</h2>
 
-  <p>The American gun violence debate has two primary positions, and they share a common flaw: both locate the problem in people rather than systems. The conservative argument focuses on individual moral failure: mental illness, family breakdown, personal responsibility. The progressive argument focuses on individual access: background checks, magazine limits, waiting periods. Both assume that if you change the person or change what the person can access, the outcome will change.</p>
+  <p>The American recidivism debate has two primary positions, and they share a common flaw: both locate the problem in the individual rather than the system. The conservative argument focuses on character and choice: people who commit crimes make bad decisions, the rest is excuses. The progressive argument focuses on services: more programs, more counseling, more support. Both assume that if you change the person, the outcome will change.</p>
 
-  <p>There is evidence that access restrictions work. The Massachusetts-Mississippi comparison makes that clear. But the 5% of city blocks finding points to something the access debate tends to miss. About half of all gun violence in American cities can be traced to neighborhoods shaped by decades of structural decisions: redlining policies that concentrated poverty and severed intergenerational wealth, disinvestment in schools and infrastructure, the removal of economic opportunity, and the systematic underfunding of the community institutions that interrupt cycles of violence. The geography of gun violence is, almost precisely, the geography of structural neglect.</p>
+  <p>But the outcome rarely changes, even when the person does. People leave prison sober, trained, motivated, and with a plan. Within months, the system has reabsorbed most of them. Not because they failed. Because the structure they walked back into was designed around the assumption they would.</p>
 
-  <p>In 2024, the U.S. Surgeon General declared gun violence a public health crisis. 2023 recorded the third-highest number of gun-related deaths ever reported in the United States. Black Americans face gun homicide rates 13 times higher than their white counterparts. These disparities are not explained by individual behavior. They are explained by the systems those individuals inhabit.</p>
+  <p>A man leaves prison. In many states, he cannot vote. He often cannot rent an apartment. He likely cannot get the job he is qualified for. His license may be suspended. He owes thousands in fines and fees. His parole requires him to find work he cannot get and live somewhere he cannot afford. If he misses an appointment, he goes back to prison. The architecture of his return is not designed for him to succeed. It is designed for the moment he fails.</p>
+
+  <h2>Three Dimensions of the Recidivism System</h2>
+
+  <p>The By Design framework looks at any persistent outcome through three lenses: Structure, Distribution, and Adaptation. Apply them to recidivism and the architecture becomes legible.</p>
+
+  <div class="dimension">
+    <div class="dimension-header">
+      <span class="dimension-number">01</span>
+      <span class="dimension-title">Structure</span>
+    </div>
+    <p>Structure is the rules, laws, and physical arrangements that define what is possible. American prisons are built around isolation, punishment, and removal from civic life. Sentences are long. Programming is thin. Family contact is restricted. Education access is limited. Mental health and addiction services are inconsistent. People do not leave prison with more capacity than they entered. They typically leave with less. Then they encounter the post-release structure: 44,000 collateral consequences, suspended licenses, employment barriers, housing exclusion, supervision conditions designed for failure. The structure of incarceration and the structure of reentry are the same structure, separated by a release date.</p>
+  </div>
+
+  <div class="dimension">
+    <div class="dimension-header">
+      <span class="dimension-number">02</span>
+      <span class="dimension-title">Distribution</span>
+    </div>
+    <p>Distribution is who gets what, where. In recidivism, distribution shows up most clearly in geography and race. Black Americans are imprisoned at roughly five times the rate of white Americans. Most released prisoners return to the same neighborhoods that incarceration was concentrated in: areas of structural disinvestment, low employment, depleted institutions, and high surveillance. The same geography that produces the highest violence rates produces the highest recidivism rates. They are not coincidences. They are the same distribution problem expressed twice.</p>
+  </div>
+
+  <div class="dimension">
+    <div class="dimension-header">
+      <span class="dimension-number">03</span>
+      <span class="dimension-title">Adaptation</span>
+    </div>
+    <p>Adaptation is how a system responds to pressure. People released into a structure designed for their failure adapt to that structure. Old networks remain the only viable social and economic ecosystem available to them. Substance use returns because the conditions that produced it have not changed. Informal economies become survival economies. These are rational adaptations, not character flaws. The system provides one set of choices. People adapt by choosing among them. And the system, through its design, ensures the set stays small.</p>
+  </div>
 
   <h2>What Works and Why</h2>
 
-  <p>The interventions with the strongest evidence base share a common feature: they treat gun violence as a community design problem, not an individual character problem. Community Violence Intervention programs deploy credible messengers, often formerly incarcerated people, to interrupt conflicts and connect high-risk individuals to services. These programs have produced measurable reductions in shootings in cities including Chicago, Oakland, and Baltimore.</p>
+  <p>The interventions with the strongest evidence base share a common feature: they treat reentry as a community design problem, not an individual character problem.</p>
 
-  <p>Los Angeles's Gang Reduction and Youth Development program took a structural approach: investing in youth employment, mental health services, community centers, and conflict mediation in the 22 neighborhoods with the highest violence rates. Even after COVID-era increases, Los Angeles homicides remain more than 20% below their pre-program average. <strong>The program did not change the people. It changed what the neighborhoods were built to offer them.</strong></p>
+  <p>Norway&rsquo;s transformation took decades. It required redesigning prison buildings, retraining officers, reorganizing sentencing, and rebuilding the bridge between incarceration and citizenship. The country did not change Norwegian people. It changed what its system was designed to produce.</p>
 
-  <p>A 2017 review of community programs across 264 cities found that for every 10 additional nonprofit crime-reduction programs per 100,000 residents, homicides fell by 9% and violent crime fell by 6%. The structural variable, community institutional density, predicted violence reduction better than policing strategy or gun law stringency. Communities with more institutional resources to absorb conflict produce less violence. That is a design finding.</p>
+  <p>Closer to home, the Delancey Street Foundation in San Francisco operates a residential program that has been replicated in five American cities. It runs entirely without government funding or professional staff. People entering Delancey Street, most coming directly from prison, live there for an average of four years. They run businesses together. They cook together. They earn high school diplomas and marketable skills together. The program has graduated more than 18,000 people, and its alumni show recidivism rates dramatically below the national average. <strong>The program did not change the people. It changed what the system was designed to offer them.</strong></p>
+
+  <p>In North Dakota, prison administrators redesigned their corrections training around the Norwegian model. Officers became mentors. Daily routines emphasized normality. Inmates received individual rehabilitation plans. The state reports significantly improved staff and inmate outcomes. The change was structural, not motivational.</p>
 
   <div class="success-failure">
     <div class="sf-card failure">
       <p class="sf-label">Design Failure</p>
-      <p>Decades of "tough on crime" policing concentrated enforcement in the same 5% of city blocks without addressing the structural conditions that produced the violence. Crime would fall during intensive policing periods, then return. The underlying architecture of concentrated poverty, absent economic opportunity, and depleted community institutions regenerated the conditions for violence as reliably as a garden produces weeds when you pull them without changing the soil.</p>
+      <p>Decades of &ldquo;tough on crime&rdquo; policy concentrated incarceration in the same communities where structural disinvestment was deepest, then released people back into those same conditions with new legal disabilities attached. The architecture treated prison as the intervention. Reentry was an afterthought. Recidivism was treated as evidence of personal failure rather than design failure. Crime would fall during periods of mass incarceration, then return. The system kept producing what it was designed to produce.</p>
     </div>
     <div class="sf-card success">
       <p class="sf-label">Design Success</p>
-      <p>Hospital-based Violence Intervention Programs identify victims of gun violence in the ER at the moment of highest receptivity and connect them to case management, employment support, and behavioral health services before discharge. The strongest risk factor for gun violence is prior violent injury; HVIPs interrupt that cycle at the structural level. Cities with mature HVIP programs have seen injury recidivism rates drop significantly from the baseline of 45% within five years.</p>
+      <p>Norway redesigned its corrections system around the principle that the punishment is the loss of liberty, and nothing else. The change was structural and slow. Recidivism dropped from approximately 70% to between 20% and 25%, where it has remained for years. Norway did not become a different country. It became a country with a different system.</p>
     </div>
   </div>
 
-  <h2>The Adaptation Problem</h2>
+  <h2>The Output Is By Design</h2>
 
-  <p>One reason gun violence is so resistant to intervention is that the systems producing it are themselves adaptive. Communities experiencing concentrated violence develop informal structures: social norms around retaliation, economic activity built around illegal markets, distrust of institutions. These serve real functions within that environment. They are not irrational responses. They are rational adaptations to a structural reality where legitimate economic opportunity is scarce, institutional trust has been repeatedly violated, and physical safety depends on social reputation.</p>
+  <p>We have built a corrections system that punishes people, then releases them into a structure designed to fail them, then measures the failure and treats it as evidence about them. We call this &ldquo;recidivism.&rdquo; We have called it that for forty years.</p>
 
-  <p>This is why interventions that change behavior without changing structure tend not to hold. You can counsel a 19-year-old out of a gang, but if the neighborhood he returns to offers no employment, no safety, and no alternative social network, the structural pressure that drove him into the gang is still operating. The system adapted him. A different system will produce a different adaptation.</p>
+  <p>What we have not done is name the design.</p>
 
-  <p>The communities making the most sustained progress against gun violence, including Cure Violence sites, cities with mature community violence intervention programs, and neighborhoods with strong nonprofit density, have one thing in common: they changed what the community was built to offer. They did not just remove the bad options. They built the good ones.</p>
+  <p>Individuals are the inputs. The system is what determines the output. The American recidivism system is producing exactly what it was designed to produce. Not because anyone designed it to make people fail. Because the prevailing design choices, mass incarceration, lifetime collateral consequences, structural reentry barriers, neighborhoods left to absorb the consequences of all of it, have made failure the most likely path between a release date and the rest of someone&rsquo;s life.</p>
+
+  <p>Until the conversation moves from who failed to what the system was designed to produce, the output will not change.</p>
 
   <div class="design-question">
     <p class="dq-label">The Design Question</p>
-    <p>"If we mapped the structural conditions of every high-violence neighborhood in America, the poverty rates, the school funding, the institutional density, the economic opportunity, what would we find that the violence debate has been missing?"</p>
+    <p>&ldquo;If we mapped the structural conditions every released prisoner is returning to, the housing access, the employment access, the supervision conditions, the legal restrictions, the neighborhood that takes them back, what would we find that the recidivism debate has been missing?&rdquo;</p>
   </div>
 
-  <p>Gun violence in America is not a mystery. It is a map. It follows the contours of structural disinvestment with remarkable precision. The argument about guns and people has produced decades of stalemate. The argument about design, about what these communities were built to offer and what we could build instead, is just beginning. It is a more honest conversation. And it may be the only one with a real answer at the end of it.</p>
+  <p>The American conversation about reentry has produced decades of stalemate. The conversation about design, about what we built incarceration to do and what we could build instead, is just beginning. It is a more honest conversation. And it may be the only one with a real answer at the end of it.</p>
 
   <div class="analyzer-prompt">
-    <h3>What is your community's violence system built to produce?</h3>
-    <p>Describe the gun violence or public safety challenge in your community and get a structural diagnosis through the By Design framework.</p>
+    <h3>What is your community&rsquo;s reentry system designed to produce?</h3>
+    <p>Describe the criminal justice or reentry challenge in your community and get a structural diagnosis through the By Design framework.</p>
     <a href="/analyzer" class="btn-primary">Analyze Your System</a>
   </div>
 
