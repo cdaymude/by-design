@@ -3,924 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>By Design — Colin Daymude</title>
+<title>Why Your Best Employees Keep Leaving - By Design</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --black: #0c0b09;
-  --white: #f6f3ee;
-  --cream: #ede9e0;
-  --gold: #b8924a;
-  --gold-light: #d4aa6a;
-  --mid: #5c5650;
-  --light: #9c9690;
-  --border: #d8d2c8;
-  --structure: #2c4a3e;
-  --distribution: #2a3d5c;
-  --adaptation: #4a2c3e;
-}
-
+:root { --black: #0c0b09; --white: #f6f3ee; --cream: #ede9e0; --gold: #b8924a; --gold-light: #d4aa6a; --mid: #5c5650; --light: #9c9690; --border: #d8d2c8; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--white);
-  color: var(--black);
-  overflow-x: hidden;
-}
-
-/* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 48px;
-  height: 64px;
-  background: rgba(246,243,238,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--black);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-}
-
-.nav-logo em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--mid);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(246,243,238,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--black); text-decoration: none; }
+.nav-logo em { font-style: italic; color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--black); }
-
-.nav-cta {
-  background: var(--black);
-  color: var(--white) !important;
-  padding: 8px 20px;
-  border-radius: 4px;
-  transition: background 0.2s !important;
-}
-
-.nav-cta:hover { background: var(--gold) !important; color: var(--white) !important; }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: 64px;
-}
-
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 64px 80px 80px;
-}
-
-.hero-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: var(--gold);
-}
-
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(48px, 5vw, 76px);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  color: var(--black);
-  margin-bottom: 28px;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--gold);
-  display: block;
-}
-
-.hero-sub {
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--mid);
-  max-width: 480px;
-  margin-bottom: 40px;
-  font-weight: 300;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.btn-primary {
-  background: var(--black);
-  color: var(--white);
-  padding: 14px 32px;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn-primary:hover {
-  background: var(--gold);
-  transform: translateY(-1px);
-}
-
-.btn-outline {
-  color: var(--black);
-  padding: 14px 32px;
-  border: 1.5px solid var(--black);
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.btn-outline:hover {
-  background: var(--black);
-  color: var(--white);
-}
-
-.hero-right {
-  position: relative;
-  background: var(--black);
-  overflow: hidden;
-}
-
-.hero-right::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 30% 70%, rgba(184,146,74,0.15) 0%, transparent 60%),
-    radial-gradient(circle at 80% 20%, rgba(184,146,74,0.08) 0%, transparent 50%);
-}
-
-.hero-quote-block {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 64px;
-  z-index: 1;
-}
-
-.hero-question {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 3vw, 44px);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.25;
-  color: var(--white);
-  margin-bottom: 32px;
-  opacity: 0.92;
-}
-
-.hero-question strong {
-  font-style: normal;
-  font-weight: 700;
-  color: var(--gold-light);
-  display: block;
-}
-
-.hero-bridge {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  line-height: 1.75;
-  color: rgba(246,243,238,0.55);
-  font-weight: 300;
-  margin-bottom: 28px;
-  padding-bottom: 28px;
-  border-bottom: 1px solid rgba(246,243,238,0.1);
-}
-
-.hero-pillars-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
-
-.hero-pillars {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.pillar {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.pillar-num {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: var(--gold);
-  padding-top: 3px;
-  min-width: 20px;
-}
-
-.pillar-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 2px;
-}
-
-.pillar-def {
-  font-size: 13px;
-  color: rgba(246,243,238,0.5);
-  line-height: 1.5;
-  font-weight: 300;
-}
-
-/* ARGUMENT SECTION */
-.argument {
-  padding: 120px 80px;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.argument-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  padding-top: 8px;
-}
-
-.argument-label-text {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 32px;
-}
-
-.argument-quote {
-  border-left: 2px solid var(--gold);
-  padding-left: 20px;
-  margin-top: 8px;
-}
-
-.aq-mark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
-  line-height: 0.6;
-  color: var(--gold);
-  opacity: 0.4;
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-
-.aq-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-style: italic;
-  line-height: 1.45;
-  color: var(--black);
-  font-weight: 600;
-  margin-bottom: 14px;
-}
-
-.aq-attr {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--light);
-}
-
-.argument-body h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 3vw, 48px);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 28px;
-  color: var(--black);
-}
-
-.argument-body h2 em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.argument-body p {
-  font-size: 17px;
-  line-height: 1.8;
-  color: var(--mid);
-  font-weight: 300;
-  margin-bottom: 20px;
-}
-
-.argument-body p:last-child { margin-bottom: 0; }
-
-/* FRAMEWORK SECTION */
-.framework-section {
-  background: var(--black);
-  padding: 100px 80px;
-}
-
-.framework-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 56px;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.section-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 12px;
-}
-
-.section-header h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 3vw, 42px);
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.15;
-}
-
-.framework-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-
-.fw-card {
-  padding: 40px 36px;
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: background 0.3s;
-}
-
-.fw-card:hover { background: rgba(255,255,255,0.04); }
-
-.fw-num {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
-
-.fw-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 16px;
-}
-
-.fw-body {
-  font-size: 14px;
-  line-height: 1.75;
-  color: rgba(246,243,238,0.55);
-  font-weight: 300;
-}
-
-/* ANALYZER CTA */
-.analyzer-cta {
-  padding: 100px 80px;
-  background: var(--cream);
-}
-
-.analyzer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.analyzer-text .section-eyebrow { color: var(--gold); }
-
-.analyzer-text h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 3vw, 48px);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--black);
-  margin-bottom: 20px;
-}
-
-.analyzer-text p {
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--mid);
-  font-weight: 300;
-  margin-bottom: 32px;
-}
-
-.analyzer-preview {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-}
-
-.preview-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--light);
-  margin-bottom: 12px;
-}
-
-.preview-prompt {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-style: italic;
-  color: var(--mid);
-  margin-bottom: 20px;
-  line-height: 1.5;
-  padding: 16px;
-  background: var(--cream);
-  border-radius: 6px;
-}
-
-.preview-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.preview-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 20px;
-}
-
-.tag-s { background: #e8f0ed; color: #2c4a3e; }
-.tag-d { background: #e8ecf4; color: #2a3d5c; }
-.tag-a { background: #f0e8ed; color: #4a2c3e; }
-
-/* ABOUT */
-.about {
-  padding: 100px 80px;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.about-photo-wrap {
-  position: relative;
-}
-
-.about-photo {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  border-radius: 4px;
-  display: block;
-}
-
-.about-photo-accent {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  width: 60%;
-  height: 60%;
-  border: 2px solid var(--gold);
-  border-radius: 4px;
-  z-index: -1;
-}
-
-.about-text .section-eyebrow { color: var(--gold); }
-
-.about-text h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 3vw, 44px);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--black);
-  margin-bottom: 24px;
-}
-
-.about-text p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--mid);
-  font-weight: 300;
-  margin-bottom: 18px;
-}
-
-.about-text p:last-of-type { margin-bottom: 32px; }
-
-/* USE CASES */
-.use-cases {
-  background: var(--cream);
-  padding: 100px 80px;
-}
-
-.use-cases-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.cases-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 56px;
-}
-
-.case-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 32px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.case-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-}
-
-.case-icon {
-  font-size: 28px;
-  margin-bottom: 16px;
-}
-
-.case-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-
-.case-desc {
-  font-size: 14px;
-  line-height: 1.65;
-  color: var(--mid);
-  font-weight: 300;
-}
-
-/* FOOTER */
-footer {
-  background: var(--black);
-  padding: 56px 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-.footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-}
-
+.nav-cta { background: var(--black); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; }
+.article-hero { padding-top: 64px; background: var(--black); }
+.article-hero-inner { max-width: 760px; margin: 0 auto; padding: 72px 48px 64px; }
+.article-category { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.article-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+.article-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 60px); font-weight: 700; line-height: 1.1; color: var(--white); margin-bottom: 24px; }
+.article-hero h1 em { font-style: italic; color: var(--gold-light); }
+.article-deck { font-size: 18px; line-height: 1.7; color: rgba(246,243,238,0.65); font-weight: 300; max-width: 620px; }
+.article-body { max-width: 760px; margin: 0 auto; padding: 64px 48px 80px; }
+.article-body p { font-size: 17px; line-height: 1.85; color: var(--mid); font-weight: 300; margin-bottom: 24px; }
+.article-body p strong { color: var(--black); font-weight: 600; }
+.article-body p:first-child { font-size: 19px; color: var(--black); font-weight: 400; }
+.article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; line-height: 1.2; color: var(--black); margin: 48px 0 16px; }
+.article-body h2 em { font-style: italic; color: var(--gold); }
+.stat-callout { background: var(--cream); border-left: 3px solid var(--gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+.stat-callout p { font-size: 15px; margin-bottom: 0; color: var(--black); }
+.stat-callout strong { font-size: 22px; display: block; margin-bottom: 6px; color: var(--gold); font-family: 'Cormorant Garamond', serif; }
+.success-failure { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+.sf-card { padding: 24px; border-radius: 8px; }
+.sf-card.failure { background: #fff0f0; border: 1px solid #f0d0d0; }
+.sf-card.success { background: #f0f8f0; border: 1px solid #c0ddc0; }
+.sf-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
+.sf-card.failure .sf-label { color: #c0392b; }
+.sf-card.success .sf-label { color: #27ae60; }
+.sf-card p { font-size: 14px; line-height: 1.6; color: var(--black); margin-bottom: 0; font-weight: 400; }
+.design-question { background: var(--black); color: var(--white); padding: 40px 48px; margin: 48px 0; border-radius: 12px; text-align: center; }
+.design-question .dq-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.design-question p { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 32px); font-style: italic; line-height: 1.35; color: var(--white); margin-bottom: 0; font-weight: 400; }
+.pullquote { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; line-height: 1.5; color: var(--black); border-left: 2px solid var(--gold); padding: 8px 0 8px 24px; margin: 32px 0; font-weight: 400; }
+.analyzer-prompt { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 36px; margin-top: 48px; text-align: center; }
+.analyzer-prompt h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+.analyzer-prompt p { font-size: 16px; color: var(--mid); margin-bottom: 20px; font-weight: 300; }
+.btn-primary { background: var(--black); color: var(--white); padding: 14px 32px; border-radius: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+.btn-primary:hover { background: var(--gold); }
+footer { background: var(--black); padding: 40px 80px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); }
 .footer-logo em { font-style: italic; color: var(--gold); }
-
-.footer-text {
-  font-size: 13px;
-  color: rgba(246,243,238,0.4);
-}
-
-.footer-links {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-}
-
-.footer-links a {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(246,243,238,0.4);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover { color: var(--gold); }
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-left > * {
-  animation: fadeUp 0.7s ease forwards;
-  opacity: 0;
-}
-
-.hero-eyebrow { animation-delay: 0.1s; }
-.hero h1 { animation-delay: 0.2s; }
-.hero-sub { animation-delay: 0.3s; }
-.hero-actions { animation-delay: 0.4s; }
-
-@media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 60px 24px 48px; }
-  .hero-right { min-height: 400px; }
-  .hero-quote-block { padding: 48px 24px; }
-  .argument { grid-template-columns: 1fr; padding: 64px 24px; gap: 24px; }
-  .framework-section { padding: 64px 24px; }
-  .framework-grid { grid-template-columns: 1fr; }
-  .analyzer-cta { padding: 64px 24px; }
-  .analyzer-inner { grid-template-columns: 1fr; }
-  .about { grid-template-columns: 1fr; padding: 64px 24px; }
-  .about-photo { max-width: 320px; }
-  .use-cases { padding: 64px 24px; }
-  .cases-grid { grid-template-columns: 1fr; }
-  footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
-}
+.footer-text { font-size: 13px; color: rgba(246,243,238,0.4); }
+@media (max-width: 700px) { nav { padding: 0 20px; } .nav-links { display: none; } .article-hero-inner { padding: 48px 20px 40px; } .article-body { padding: 40px 20px 60px; } .success-failure { grid-template-columns: 1fr; } .design-question { padding: 28px 20px; } footer { padding: 32px 20px; } }
 </style>
 </head>
 <body>
-
 <nav>
   <a class="nav-logo" href="/"><em>By</em> Design</a>
   <ul class="nav-links">
-    <li><a href="#framework">The Framework</a></li>
-    <li><a href="#about">About Colin</a></li>
-    <li><a href="#use-cases">Use Cases</a></li>
-    <li><a href="/analyzer" class="nav-cta">Try the Analyzer →</a></li>
+    <li><a href="/#framework">The Framework</a></li>
+    <li><a href="/#about">About Colin</a></li>
+    <li><a href="/#use-cases">Use Cases</a></li>
+    <li><a href="/analyzer" class="nav-cta">System Analyzer</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">A Framework by Colin Daymude</p>
-    <h1>By <em>Design</em></h1>
-    <p class="hero-sub">What if the outcomes you keep seeing — in your organization, your community, your life — aren't accidents? What if the system is working exactly as intended?</p>
-    <div class="hero-actions">
-      <a href="/analyzer" class="btn-primary">Try the Framework Analyzer →</a>
-      <a href="#framework" class="btn-outline">Learn More</a>
-    </div>
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <p class="article-category">Workplace &amp; Culture</p>
+    <h1>Why Your Best Employees<br><em>Keep Leaving</em></h1>
+    <p class="article-deck">U.S. companies spent nearly $900 billion replacing employees who quit in 2023. They hired coaches, raised salaries, and rewrote their values statements. The turnover kept coming. The retention framing has produced almost nothing. The design framing might.</p>
   </div>
-  <div class="hero-right">
-    <div class="hero-quote-block">
-      <p class="hero-question">
-        What was this system
-        <strong>built to produce?</strong>
-      </p>
-      <p class="hero-bridge">Every persistent outcome is the predictable product of a system's design. The team that keeps failing and the team that keeps winning. The school that produces extraordinary results and the one that can't move the needle. The community that stays stuck and the one that keeps producing champions. The instinct is always to look at the people. But the people are rarely the answer. The architecture around them is. Three dimensions reveal what any system is actually built to do.</p>
-      <p class="hero-pillars-label">The Framework</p>
-      <div class="hero-pillars">
-        <div class="pillar">
-          <span class="pillar-num">01</span>
-          <div>
-            <div class="pillar-name">Structure</div>
-            <div class="pillar-def">The rules, roles, and constraints that define what's possible</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <span class="pillar-num">02</span>
-          <div>
-            <div class="pillar-name">Distribution</div>
-            <div class="pillar-def">How resources, opportunity, and access are allocated</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <span class="pillar-num">03</span>
-          <div>
-            <div class="pillar-name">Adaptation</div>
-            <div class="pillar-def">How the system responds to pressure and the need for change</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
-<!-- ARGUMENT -->
-<section class="argument" id="framework">
-  <div class="argument-label">
-    <p class="argument-label-text">The Core Argument</p>
-    <div class="argument-quote">
-      <p class="aq-mark">"</p>
-      <p class="aq-text">What if we stopped treating outliers like exceptions and started using them as instructions?</p>
-      <p class="aq-attr">Colin Daymude</p>
-    </div>
-  </div>
-  <div class="argument-body">
-    <h2>We keep asking what's wrong with the people.<br><em>Ask instead what the system was built to produce.</em></h2>
-    <p>When a team keeps underperforming, we blame the manager. When students fall behind, we blame the teachers. When communities stay stuck, we blame the residents. We locate the problem in the people and we keep getting the same results.</p>
-    <p>Most outcomes, good and bad, are the predictable product of the systems that contain them. At 110 stories and 1,451 feet, Willis Tower in Chicago was the tallest building in the world for 25 years. It doesn't stand because of exceptional steel. It stands because of how the structure is designed to distribute load and adapt under pressure. The same principle governs every human system.</p>
-    <p>Once you learn to see it, you can't unsee it.</p>
-  </div>
-</section>
+<div class="article-body">
 
-<!-- FRAMEWORK -->
-<section class="framework-section">
-  <div class="framework-inner">
-    <div class="section-header">
-      <div>
-        <p class="section-eyebrow">The Framework</p>
-        <h2>Three dimensions of every system</h2>
-      </div>
-    </div>
-    <div class="framework-grid">
-      <div class="fw-card">
-        <p class="fw-num">01</p>
-        <h3 class="fw-title">Structure</h3>
-        <p class="fw-body">The rules, roles, incentives, physical arrangements, and constraints that define what is even possible within the system. Structure is the architecture — it operates whether anyone is conscious of it or not. It determines what the container encourages, permits, or makes impossible.</p>
-      </div>
-      <div class="fw-card">
-        <p class="fw-num">02</p>
-        <h3 class="fw-title">Distribution</h3>
-        <p class="fw-body">How resources, attention, opportunity, authority, and access are allocated across the system. Distribution determines who gets what — and therefore who can succeed within the current design. Unequal distribution is often invisible precisely because it is baked into the architecture.</p>
-      </div>
-      <div class="fw-card">
-        <p class="fw-num">03</p>
-        <h3 class="fw-title">Adaptation</h3>
-        <p class="fw-body">How the system responds to pressure, feedback, and the need for change. A well-designed system flexes under load and redistributes stress across the whole. A brittle system snaps. A system that cannot adapt will either collapse rigidly or drift into chaos.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <p>In 2023, U.S. companies spent nearly $900 billion replacing employees who quit, according to the Work Institute. The spending bought almost nothing. Most of those companies were not failing to retain people. They were succeeding at producing the system they had built.</p>
 
-<!-- ANALYZER CTA -->
-<section class="analyzer-cta">
-  <div class="analyzer-inner">
-    <div class="analyzer-text">
-      <p class="section-eyebrow">The By Design Analyzer</p>
-      <h2>Diagnose any system in minutes</h2>
-      <p>Describe a situation — a team, an organization, a policy, a pattern — and the Analyzer will diagnose it through the lens of Structure, Distribution, and Adaptation. It won't tell you what's wrong with your people. It will show you what the system was built to produce.</p>
-      <a href="/analyzer" class="btn-primary">Try the Analyzer →</a>
-    </div>
-    <div class="analyzer-preview">
-      <p class="preview-label">Sample Input</p>
-      <p class="preview-prompt">"We can't seem to retain top employees. Exit interviews say 'better opportunity' but that's vague. We offer competitive salaries and have a stated culture of growth and autonomy..."</p>
-      <p class="preview-label">Diagnosing through</p>
-      <div class="preview-tags">
-        <span class="preview-tag tag-s">Structure</span>
-        <span class="preview-tag tag-d">Distribution</span>
-        <span class="preview-tag tag-a">Adaptation</span>
-      </div>
-    </div>
-  </div>
-</section>
+  <p>This story plays out in thousands of organizations every year. The conventional response, better pay, better perks, better managers, treats the symptom while leaving the cause entirely intact. The cause is the system itself.</p>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-photo-wrap">
-    <img src="data:image/jpeg;base64,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" alt="Colin Daymude" class="about-photo">
-    <div class="about-photo-accent"></div>
+  <div class="stat-callout">
+    <strong>$900 billion</strong>
+    <p>What U.S. companies spent replacing employees who quit in 2023, according to the Work Institute. Replacing a single employee costs between 33% and 200% of their annual salary. Yet most companies treat turnover as a hiring problem rather than a design problem.</p>
   </div>
-  <div class="about-text">
-    <p class="section-eyebrow">About Colin Daymude</p>
-    <h2>Colin Daymude</h2>
-    <p>Colin Daymude is a systems thinker and keynote speaker with two decades of experience in marketing strategy and organizational behavior. He has spent his career studying why intelligent people in well-resourced organizations keep producing the same outcomes — and what it takes to change them.</p>
-    <p>The Structure, Distribution, Adaptation framework emerged from years of working with teams and organizations who had tried everything except examining the system itself. The core insight: behavior is the symptom. Architecture is the cause.</p>
-    <p>Colin speaks at leadership and strategy conferences on systems thinking and organizational design. The framework is currently being developed as a book and TED talk.</p>
-    <a href="/cdn-cgi/l/email-protection#aecdc1c2c7c0eeccd7cacbddc7c9c080cacbddc7c9c0" class="btn-primary">Speaking Inquiries →</a>
-  </div>
-</section>
 
-<!-- USE CASES -->
-<section class="use-cases" id="use-cases">
-  <div class="use-cases-inner">
-    <div class="section-header">
-      <div>
-        <p class="section-eyebrow">The Framework in Practice</p>
-        <h2>Every system. Any domain.</h2>
-      </div>
+  <h2>The Numbers Don&rsquo;t Point Where You Think</h2>
+
+  <p>According to Gallup&rsquo;s 2024 retention data, <strong>engagement and culture account for 37% of departures</strong>, and wellbeing and work-life balance account for another 31%. Together they explain nearly 70% of why people leave. Pay and benefits, the thing most organizations reach for first, account for just 9%. More tellingly, nearly half of employees who leave report that their employer could have done something to keep them. The window for intervention was there. It just was not visible because leaders were looking in the wrong place.</p>
+
+  <p>The standard narrative is that people leave bad managers. There is truth in that. Poor leadership ranks among the top three reasons employees quit. But the manager is not the cause. The manager is the output of the system that selected them, promoted them, and evaluated them on metrics that have nothing to do with developing the people around them.</p>
+
+  <p class="pullquote">Individuals are the inputs. The system is what determines the output.</p>
+
+  <h2>What Structure Actually Does</h2>
+
+  <p>Every organization has a formal structure: org charts, job descriptions, performance review cycles, compensation bands. The more powerful structure is the informal one. What actually gets rewarded. What gets ignored. What behavior the system makes structurally inevitable. When a company says it values work-life balance but its promotion criteria reward 60-hour weeks, the informal structure has spoken. When it says it values employee development but managers are evaluated only on output, not retention, the architecture has told the truth that the culture statement concealed.</p>
+
+  <p>Research confirms this. A 2024 survey found that <strong>56% of employees believe their manager was promoted too quickly</strong>, and more than half believe their manager has not received appropriate training. This is not a management quality problem. It is a promotion criteria problem. The system is selecting for technical skill or individual output and then placing those people into roles that require an entirely different capability: the ability to develop others. The container was built wrong.</p>
+
+  <div class="success-failure">
+    <div class="sf-card failure">
+      <p class="sf-label">Design Failure</p>
+      <p>A Fortune 500 retailer with 24.9% annual turnover, among the highest of any sector, runs annual engagement surveys and quarterly one-on-ones. Managers are trained in feedback frameworks. Turnover has not moved in three years. The structural problem: store managers are evaluated on sales per square foot and shrink rates. Retention is not a metric. The system produces exactly what it measures.</p>
     </div>
-    <div class="cases-grid">
-      <a href="/education" class="case-card">
-        <div class="case-icon">🏫</div>
-        <h3 class="case-title">Education & Student Outcomes</h3>
-        <p class="case-desc">Why do students in identical classrooms diverge so dramatically? The answer isn't talent. It's architecture.</p>
-      </a>
-      <a href="/workplace" class="case-card">
-        <div class="case-icon">🏢</div>
-        <h3 class="case-title">Workplace Culture & Performance</h3>
-        <p class="case-desc">Culture isn't what you say it is. It's what your system rewards, tolerates, and makes structurally inevitable.</p>
-      </a>
-      <a href="/recidivism" class="case-card">
-        <div class="case-icon">⚖️</div>
-        <h3 class="case-title">Criminal Justice & Recidivism</h3>
-        <p class="case-desc">82% of people released from prison are rearrested within 10 years. That's not a people problem. It's a design problem.</p>
-      </a>
-      <a href="/gun-violence" class="case-card">
-        <div class="case-icon">🎯</div>
-        <h3 class="case-title">Gun Violence & Public Safety</h3>
-        <p class="case-desc">Half of all urban gun violence happens on 5% of city blocks. The geography of violence is the geography of structural neglect.</p>
-      </a>
-      <a href="/analyzer" class="case-card">
-        <div class="case-icon">⚡</div>
-        <h3 class="case-title">Analyze Your System</h3>
-        <p class="case-desc">Describe any situation and get a full Structure, Distribution, and Adaptation diagnosis in minutes.</p>
-      </a>
-      <a href="/analyzer" class="case-card">
-        <div class="case-icon">→</div>
-        <h3 class="case-title">More Use Cases Coming</h3>
-        <p class="case-desc">Healthcare outcomes, urban policy, nonprofit scaling, and more. The framework applies wherever systems produce persistent outcomes.</p>
-      </a>
+    <div class="sf-card success">
+      <p class="sf-label">Design Success</p>
+      <p>Companies with comprehensive retention strategies, those that build retention metrics into manager evaluations, create explicit career pathways, and tie compensation to team stability, achieve 87% higher retention rates and 67% lower recruiting costs, according to SHRM. The difference is not culture. It is architecture.</p>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
+  <h2>Distribution: Who Gets What</h2>
+
+  <p>One of the most consistent findings in retention research is that high performers leave at disproportionate rates, not because they are unhappy with pay, but because they are unhappy with access. Access to interesting work, to visible projects, to sponsors who will advocate for their advancement. In most organizations, that access is distributed informally, through proximity to power and through networks that correlate heavily with demographics, tenure, and personality type. The quiet performer doing excellent work in a remote office loses to the louder performer who has lunch with the division head.</p>
+
+  <p>When organizations say &ldquo;we lose our best people,&rdquo; they are often describing a distribution problem masquerading as a retention problem. The talent did not leave because they were not paid enough. They left because the system did not give them what they came for. And the system&rsquo;s distribution of visibility, sponsorship, and opportunity was invisible. Never named. Never measured. Never redesigned.</p>
+
+  <h2>Adaptation: Why the Fixes Don&rsquo;t Stick</h2>
+
+  <p>Companies that respond to turnover with raises and surveys often find the system right back where it started six months later. This pattern, intervention followed by temporary stabilization followed by return to baseline, is one of the clearest signs of adaptive failure. The system absorbed the change and returned to its prior state because the architecture beneath the change had not moved. You cannot raise your way out of a system designed for departure.</p>
+
+  <p>The most revealing data point: <strong>38% of employees quit within their first year</strong>, and 40% of those leave within the first 90 days. Organizations that lose people this quickly do not have a talent problem. They have a structural onboarding problem. The architecture did not integrate new people into the system. It exposed them to it and let them draw their own conclusions. A clear onboarding process improves retention by 23%. That is not a culture intervention. That is a design intervention.</p>
+
+  <p>The organizations with the lowest turnover, government at 0.8%, financial services at 1.4%, do not have better people or better managers. They have systems with clear role definitions, predictable career trajectories, and strong structural incentives for both the organization and the employee to maintain the relationship over time. The architecture holds.</p>
+
+  <div class="design-question">
+    <p class="dq-label">The Design Question</p>
+    <p>&ldquo;If you mapped every formal and informal incentive in your organization, what behavior would a rational person conclude the system was built to reward, and is retention one of them?&rdquo;</p>
+  </div>
+
+  <p>The next time a high performer hands in their resignation, resist the instinct to ask what you could have done differently for that person. Ask instead what the system produces when it runs as designed. If the answer is turnover, then better pay and better coaching are rearranging furniture in a burning building. The building needs to be redesigned. Until it is, the resignations will keep coming, in exactly the volume the system was designed to deliver.</p>
+
+  <div class="analyzer-prompt">
+    <h3>Is this a people problem or a design problem?</h3>
+    <p>Describe your organization&rsquo;s retention challenge and get a full Structure, Distribution, and Adaptation diagnosis specific to your situation.</p>
+    <a href="/analyzer" class="btn-primary">Analyze Your System</a>
+  </div>
+
+</div>
+
 <footer>
   <div class="footer-logo"><em>By</em> Design</div>
-  <p class="footer-text">© 2025 Colin Daymude. All rights reserved.</p>
-  <ul class="footer-links">
-    <li><a href="#framework">Framework</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="/analyzer">Analyzer</a></li>
-    <li><a href="/cdn-cgi/l/email-protection#4d2e222124
+  <p class="footer-text">2025 Colin Daymude. All rights reserved.</p>
+</footer>
+</body>
+</html>
