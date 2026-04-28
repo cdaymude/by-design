@@ -1,174 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gun Violence Is a Design Problem - By Design</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gun Violence Is a Design Problem | By Design</title>
+<meta name="description" content="Gun violence in America is not a mystery. It is a map. It follows the contours of structural disinvestment with remarkable precision. A By Design framework analysis." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 <style>
-:root { --black: #0c0b09; --white: #f6f3ee; --cream: #ede9e0; --gold: #b8924a; --gold-light: #d4aa6a; --mid: #5c5650; --light: #9c9690; --border: #d8d2c8; }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); }
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(246,243,238,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--black); text-decoration: none; }
-.nav-logo em { font-style: italic; color: var(--gold); }
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--black); }
-.nav-cta { background: var(--black); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; }
-.article-hero { padding-top: 64px; background: var(--black); }
-.article-hero-inner { max-width: 760px; margin: 0 auto; padding: 72px 48px 64px; }
-.article-category { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-.article-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
-.article-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 60px); font-weight: 700; line-height: 1.1; color: var(--white); margin-bottom: 24px; }
-.article-hero h1 em { font-style: italic; color: var(--gold-light); }
-.article-deck { font-size: 18px; line-height: 1.7; color: rgba(246,243,238,0.65); font-weight: 300; max-width: 620px; }
-.article-body { max-width: 760px; margin: 0 auto; padding: 64px 48px 80px; }
-.article-body p { font-size: 17px; line-height: 1.85; color: var(--mid); font-weight: 300; margin-bottom: 24px; }
-.article-body p strong { color: var(--black); font-weight: 600; }
-.article-body p:first-child { font-size: 19px; color: var(--black); font-weight: 400; }
-.article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; line-height: 1.2; color: var(--black); margin: 48px 0 16px; }
-.article-body h2 em { font-style: italic; color: var(--gold); }
-.stat-callout { background: var(--cream); border-left: 3px solid var(--gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 8px 8px 0; }
-.stat-callout p { font-size: 15px; margin-bottom: 0; color: var(--black); }
-.stat-callout strong { font-size: 22px; display: block; margin-bottom: 6px; color: var(--gold); font-family: 'Cormorant Garamond', serif; }
-.comparison-block { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin: 32px 0; background: var(--border); border-radius: 8px; overflow: hidden; }
-.comparison-side { padding: 28px; background: var(--white); }
-.comparison-side.dark { background: var(--black); }
-.comparison-state { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; color: var(--gold); }
-.comparison-side.dark .comparison-state { color: var(--gold-light); }
-.comparison-stat { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; margin-bottom: 4px; color: var(--black); }
-.comparison-side.dark .comparison-stat { color: var(--white); }
-.comparison-label { font-size: 13px; color: var(--mid); font-weight: 300; margin-bottom: 16px; }
-.comparison-side.dark .comparison-label { color: rgba(246,243,238,0.5); }
-.comparison-detail { font-size: 13px; line-height: 1.65; color: var(--mid); font-weight: 300; }
-.comparison-side.dark .comparison-detail { color: rgba(246,243,238,0.6); }
-.success-failure { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
-.sf-card { padding: 24px; border-radius: 8px; }
-.sf-card.failure { background: #fff0f0; border: 1px solid #f0d0d0; }
-.sf-card.success { background: #f0f8f0; border: 1px solid #c0ddc0; }
-.sf-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
-.sf-card.failure .sf-label { color: #c0392b; }
-.sf-card.success .sf-label { color: #27ae60; }
-.sf-card p { font-size: 14px; line-height: 1.6; color: var(--black); margin-bottom: 0; font-weight: 400; }
-.design-question { background: var(--black); color: var(--white); padding: 40px 48px; margin: 48px 0; border-radius: 12px; text-align: center; }
-.design-question .dq-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-.design-question p { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 32px); font-style: italic; line-height: 1.35; color: var(--white); margin-bottom: 0; font-weight: 400; }
-.analyzer-prompt { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 36px; margin-top: 48px; text-align: center; }
-.analyzer-prompt h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
-.analyzer-prompt p { font-size: 16px; color: var(--mid); margin-bottom: 20px; font-weight: 300; }
-.btn-primary { background: var(--black); color: var(--white); padding: 14px 32px; border-radius: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
-.btn-primary:hover { background: var(--gold); }
-footer { background: var(--black); padding: 40px 80px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); }
-.footer-logo em { font-style: italic; color: var(--gold); }
-.footer-text { font-size: 13px; color: rgba(246,243,238,0.4); }
-@media (max-width: 700px) { nav { padding: 0 20px; } .nav-links { display: none; } .article-hero-inner { padding: 48px 20px 40px; } .article-body { padding: 40px 20px 60px; } .comparison-block { grid-template-columns: 1fr; } .success-failure { grid-template-columns: 1fr; } .design-question { padding: 28px 20px; } footer { padding: 32px 20px; } }
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  .serif { font-family: 'Source Serif 4', Georgia, serif; }
+  .italic-by { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-weight: 600; }
 </style>
 </head>
-<body>
-<nav>
-  <a class="nav-logo" href="/"><em>By</em> Design</a>
-  <ul class="nav-links">
-    <li><a href="/#framework">The Framework</a></li>
-    <li><a href="/#about">About Colin</a></li>
-    <li><a href="/#use-cases">Use Cases</a></li>
-    <li><a href="/analyzer" class="nav-cta">System Analyzer</a></li>
-  </ul>
-</nav>
+<body class="bg-stone-50 text-stone-900 antialiased">
 
-<div class="article-hero">
-  <div class="article-hero-inner">
-    <p class="article-category">Public Safety & Policy</p>
-    <h1>Gun Violence Is<br><em>a Design Problem</em></h1>
-    <p class="article-deck">The United States has the highest rate of community gun violence of any developed democracy. We've spent decades arguing about people: the shooters, the victims, the lawmakers. The argument has produced almost nothing. The design argument might.</p>
+<!-- Header / Nav -->
+<header class="border-b border-stone-200">
+  <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="/" class="text-2xl tracking-tight">
+      <span class="italic-by">By</span> <span class="font-semibold">Design</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm text-stone-600">
+      <a href="/#framework" class="hover:text-stone-900 transition">The Framework</a>
+      <a href="/#about" class="hover:text-stone-900 transition">About Colin</a>
+      <a href="/#use-cases" class="hover:text-stone-900 transition">Use Cases</a>
+      <a href="/analyzer" class="px-4 py-2 bg-stone-900 text-stone-50 rounded-full hover:bg-stone-700 transition">Try the Analyzer →</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="article-body">
+<!-- Hero -->
+<section class="max-w-3xl mx-auto px-6 pt-20 pb-12">
+  <p class="text-sm font-medium text-stone-500 tracking-widest uppercase mb-6">Public Safety &amp; Policy</p>
+  <h1 class="serif text-5xl md:text-6xl leading-tight font-semibold mb-8">
+    Gun Violence Is <em class="italic-by font-semibold">a Design Problem</em>
+  </h1>
+  <p class="text-xl text-stone-700 leading-relaxed">
+    The United States has the highest rate of community gun violence of any developed democracy. We have spent decades arguing about people: the shooters, the victims, the lawmakers. The argument has produced almost nothing. The design argument might.
+  </p>
+</section>
 
-  <p>Start with two states. Mississippi has a gun death rate of 29.4 per 100,000 people. Massachusetts has a gun death rate of 3.7 per 100,000. Someone living in Mississippi is eight times more likely to die from gun violence than someone living in Massachusetts. That gap has been consistent for years, and it sits at the center of every serious debate about gun policy in America.</p>
+<!-- Opening: two states -->
+<section class="max-w-3xl mx-auto px-6 py-8 space-y-6 text-lg leading-relaxed text-stone-800">
+  <p>
+    Start with two states. Mississippi has a gun death rate of 29.4 per 100,000 people. Massachusetts has a gun death rate of 3.7. Someone living in Mississippi is eight times more likely to die from gun violence than someone living in Massachusetts. Same Constitution. Same Second Amendment. Radically different outcomes.
+  </p>
+  <p>
+    The easy explanation is gun laws. Massachusetts has comprehensive licensing requirements, universal background checks, and an extreme risk protection law. Mississippi has done the opposite, and done it deliberately. In 2016, the state passed constitutional carry, eliminating the permit requirement for concealed handguns. Year after year since, the Mississippi legislature has introduced and re-passed versions of what it calls the Second Amendment Preservation Act. The act preempts the entire field of firearms regulation at the state level, meaning no city, no county, no political subdivision in Mississippi can pass any rule stricter than what the state itself has on the books. And what the state itself has on the books is essentially nothing. Mississippi has set the floor and the ceiling of firearms regulation in the same place, near zero, and made it illegal for any local government within its borders to move either one.
+  </p>
+  <p>
+    Mississippi did not just have weak gun laws. Mississippi codified the absence of structural oversight as a policy position. That is not the absence of a system. That is a system. It is a system whose explicit, legislated function is to prevent any other system from being built around it.
+  </p>
+  <p class="text-xl serif italic text-stone-700 border-l-2 border-stone-300 pl-6 my-10">
+    We have a law that says certain people cannot own guns. We do not have a system that prevents them from owning guns. Those are not the same thing.
+  </p>
+</section>
 
-  <p>The standard explanation is gun laws. Massachusetts has comprehensive licensing requirements, universal background checks, and an extreme risk protection law. Mississippi has done the opposite: in 2016, the state passed constitutional carry legislation, eliminating the permit requirement for concealed handguns entirely. No permit, no background check for private sales, no waiting period, no registration, no assault weapons ban. Mississippi did not just have weak gun laws. It legislatively codified the elimination of structural oversight as a policy position.</p>
-
-  <div class="comparison-block">
-    <div class="comparison-side">
-      <p class="comparison-state">Massachusetts</p>
-      <p class="comparison-stat">3.7</p>
-      <p class="comparison-label">gun deaths per 100,000 people (2023)</p>
-      <p class="comparison-detail">Comprehensive licensing, universal background checks, extreme risk protection law, no permitless carry. Lowest gun death rate in the continental United States.</p>
+<!-- Stat Panels: MA vs MS -->
+<section class="max-w-5xl mx-auto px-6 py-12">
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-white border border-stone-200 rounded-lg p-8">
+      <p class="text-sm font-semibold tracking-widest uppercase text-emerald-700 mb-4">Massachusetts</p>
+      <p class="serif text-7xl font-semibold mb-2">3.7</p>
+      <p class="text-sm text-stone-500 mb-6">gun deaths per 100,000 people (2023)</p>
+      <p class="text-stone-700 leading-relaxed">
+        Comprehensive licensing, universal background checks, extreme risk protection law, no permitless carry. Lowest gun death rate in the continental United States.
+      </p>
     </div>
-    <div class="comparison-side dark">
-      <p class="comparison-state">Mississippi</p>
-      <p class="comparison-stat">29.4</p>
-      <p class="comparison-label">gun deaths per 100,000 people (2023)</p>
-      <p class="comparison-detail">Constitutional carry enacted 2016. No permit, background check, or registration required for private gun sales. No assault weapons ban. No waiting period. Highest gun death rate in the nation.</p>
-    </div>
-  </div>
-
-  <p>But here is where the design argument becomes more interesting, and more uncomfortable, than either side of the gun debate typically allows. Gun laws explain part of the gap between these two states. They do not explain all of it. Mississippi and Massachusetts also differ sharply in their poverty rates, their investment in community infrastructure, their housing stability, and the health of their social institutions. The structural conditions that produce violence run deeper than the laws that govern firearm access.</p>
-
-  <div class="stat-callout">
-    <strong>5% of city blocks</strong>
-    <p>account for approximately half of all gun violence in American cities, according to research cited by the DOJ. This concentration is not random. It maps almost exactly onto neighborhoods shaped by decades of structural disinvestment, housing segregation, and the removal of economic opportunity. The violence is clustered where the structural failures are deepest.</p>
-  </div>
-
-  <h2>Why the Debate Goes Nowhere</h2>
-
-  <p>The American gun violence debate has two primary positions, and they share a common flaw: both locate the problem in people rather than systems. The conservative argument focuses on individual moral failure: mental illness, family breakdown, personal responsibility. The progressive argument focuses on individual access: background checks, magazine limits, waiting periods. Both assume that if you change the person or change what the person can access, the outcome will change.</p>
-
-  <p>There is evidence that access restrictions work. The Massachusetts-Mississippi comparison makes that clear. But the 5% of city blocks finding points to something the access debate tends to miss. About half of all gun violence in American cities can be traced to neighborhoods shaped by decades of structural decisions: redlining policies that concentrated poverty and severed intergenerational wealth, disinvestment in schools and infrastructure, the removal of economic opportunity, and the systematic underfunding of the community institutions that interrupt cycles of violence. The geography of gun violence is, almost precisely, the geography of structural neglect.</p>
-
-  <p>In 2024, the U.S. Surgeon General declared gun violence a public health crisis. 2023 recorded the third-highest number of gun-related deaths ever reported in the United States. Black Americans face gun homicide rates 13 times higher than their white counterparts. These disparities are not explained by individual behavior. They are explained by the systems those individuals inhabit.</p>
-
-  <h2>What Works and Why</h2>
-
-  <p>The interventions with the strongest evidence base share a common feature: they treat gun violence as a community design problem, not an individual character problem. Community Violence Intervention programs deploy credible messengers, often formerly incarcerated people, to interrupt conflicts and connect high-risk individuals to services. These programs have produced measurable reductions in shootings in cities including Chicago, Oakland, and Baltimore.</p>
-
-  <p>Los Angeles's Gang Reduction and Youth Development program took a structural approach: investing in youth employment, mental health services, community centers, and conflict mediation in the 22 neighborhoods with the highest violence rates. Even after COVID-era increases, Los Angeles homicides remain more than 20% below their pre-program average. <strong>The program did not change the people. It changed what the neighborhoods were built to offer them.</strong></p>
-
-  <p>A 2017 review of community programs across 264 cities found that for every 10 additional nonprofit crime-reduction programs per 100,000 residents, homicides fell by 9% and violent crime fell by 6%. The structural variable, community institutional density, predicted violence reduction better than policing strategy or gun law stringency. Communities with more institutional resources to absorb conflict produce less violence. That is a design finding.</p>
-
-  <div class="success-failure">
-    <div class="sf-card failure">
-      <p class="sf-label">Design Failure</p>
-      <p>Decades of "tough on crime" policing concentrated enforcement in the same 5% of city blocks without addressing the structural conditions that produced the violence. Crime would fall during intensive policing periods, then return. The underlying architecture of concentrated poverty, absent economic opportunity, and depleted community institutions regenerated the conditions for violence as reliably as a garden produces weeds when you pull them without changing the soil.</p>
-    </div>
-    <div class="sf-card success">
-      <p class="sf-label">Design Success</p>
-      <p>Hospital-based Violence Intervention Programs identify victims of gun violence in the ER at the moment of highest receptivity and connect them to case management, employment support, and behavioral health services before discharge. The strongest risk factor for gun violence is prior violent injury; HVIPs interrupt that cycle at the structural level. Cities with mature HVIP programs have seen injury recidivism rates drop significantly from the baseline of 45% within five years.</p>
+    <div class="bg-white border border-stone-200 rounded-lg p-8">
+      <p class="text-sm font-semibold tracking-widest uppercase text-rose-700 mb-4">Mississippi</p>
+      <p class="serif text-7xl font-semibold mb-2">29.4</p>
+      <p class="text-sm text-stone-500 mb-6">gun deaths per 100,000 people (2023)</p>
+      <p class="text-stone-700 leading-relaxed">
+        Constitutional carry enacted 2016. Second Amendment Preservation Act preempts all local regulation. No state background check beyond the federal floor. No purchase permit. No licensing. No waiting period. No red flag law. Highest gun death rate in the nation.
+      </p>
     </div>
   </div>
+</section>
 
-  <h2>The Adaptation Problem</h2>
+<!-- Beyond state law -->
+<section class="max-w-3xl mx-auto px-6 py-8 space-y-6 text-lg leading-relaxed text-stone-800">
+  <p>
+    But the design argument does not end with state-level laws. Gun laws explain part of the gap between Massachusetts and Mississippi. They do not explain all of it. The structural conditions that produce violence run deeper than the laws that govern firearm access.
+  </p>
+</section>
 
-  <p>One reason gun violence is so resistant to intervention is that the systems producing it are themselves adaptive. Communities experiencing concentrated violence develop informal structures: social norms around retaliation, economic activity built around illegal markets, distrust of institutions. These serve real functions within that environment. They are not irrational responses. They are rational adaptations to a structural reality where legitimate economic opportunity is scarce, institutional trust has been repeatedly violated, and physical safety depends on social reputation.</p>
-
-  <p>This is why interventions that change behavior without changing structure tend not to hold. You can counsel a 19-year-old out of a gang, but if the neighborhood he returns to offers no employment, no safety, and no alternative social network, the structural pressure that drove him into the gang is still operating. The system adapted him. A different system will produce a different adaptation.</p>
-
-  <p>The communities making the most sustained progress against gun violence, including Cure Violence sites, cities with mature community violence intervention programs, and neighborhoods with strong nonprofit density, have one thing in common: they changed what the community was built to offer. They did not just remove the bad options. They built the good ones.</p>
-
-  <div class="design-question">
-    <p class="dq-label">The Design Question</p>
-    <p>"If we mapped the structural conditions of every high-violence neighborhood in America, the poverty rates, the school funding, the institutional density, the economic opportunity, what would we find that the violence debate has been missing?"</p>
+<!-- 5% of city blocks -->
+<section class="max-w-3xl mx-auto px-6 py-8">
+  <div class="bg-stone-900 text-stone-50 rounded-lg p-10 text-center">
+    <p class="serif text-6xl font-semibold mb-3">5% of city blocks</p>
+    <p class="text-lg text-stone-300 leading-relaxed max-w-2xl mx-auto">
+      account for approximately half of all gun violence in American cities. This concentration is not random. It maps almost exactly onto neighborhoods shaped by decades of structural disinvestment, housing segregation, and the removal of economic opportunity. The violence is clustered where the structural failures are deepest.
+    </p>
   </div>
+</section>
 
-  <p>Gun violence in America is not a mystery. It is a map. It follows the contours of structural disinvestment with remarkable precision. The argument about guns and people has produced decades of stalemate. The argument about design, about what these communities were built to offer and what we could build instead, is just beginning. It is a more honest conversation. And it may be the only one with a real answer at the end of it.</p>
+<section class="max-w-3xl mx-auto px-6 py-8 space-y-6 text-lg leading-relaxed text-stone-800">
+  <p>
+    About half of all gun violence in American cities can be traced to neighborhoods shaped by decades of structural decisions: redlining policies that concentrated poverty and severed intergenerational wealth, disinvestment in schools and infrastructure, the removal of economic opportunity, and the systematic underfunding of the community institutions that interrupt cycles of violence. The geography of gun violence is, almost precisely, the geography of structural neglect.
+  </p>
+  <p>
+    In 2024, the U.S. Surgeon General declared gun violence a public health crisis. 2023 recorded the third-highest number of gun-related deaths ever reported in the United States. Black Americans face gun homicide rates roughly thirteen times higher than their white counterparts. These disparities are not explained by individual behavior. They are explained by the systems those individuals inhabit.
+  </p>
+</section>
 
-  <div class="analyzer-prompt">
-    <h3>What is your community's violence system built to produce?</h3>
-    <p>Describe the gun violence or public safety challenge in your community and get a structural diagnosis through the By Design framework.</p>
-    <a href="/analyzer" class="btn-primary">Analyze Your System</a>
+<!-- Three Dimensions -->
+<section class="max-w-3xl mx-auto px-6 pt-16 pb-8">
+  <p class="text-sm font-medium tracking-widest uppercase text-stone-500 mb-3">The Framework Applied</p>
+  <h2 class="serif text-4xl font-semibold mb-8">Three Dimensions of the Gun Violence System</h2>
+  <p class="text-lg leading-relaxed text-stone-800 mb-10">
+    The By Design framework looks at any persistent outcome through three lenses: Structure, Distribution, and Adaptation. Apply them to gun violence and the architecture becomes legible.
+  </p>
+
+  <div class="space-y-10">
+    <div>
+      <div class="flex items-baseline gap-4 mb-3">
+        <span class="serif text-4xl text-stone-400">01</span>
+        <h3 class="text-2xl font-semibold">Structure</h3>
+      </div>
+      <p class="text-lg leading-relaxed text-stone-800">
+        Structure is the rules, laws, and physical arrangements that define what is possible. In Massachusetts, the structure is multi-layered: licensing, training, background checks on private sales, registration, the legal authority to revoke a license. In Mississippi, the structure has been deliberately stripped down and constitutionally defended. Constitutional carry. No state background check beyond the federal floor. No purchase permit. No licensing. No waiting period. No red flag law. No requirement to report a stolen gun. The structure in one state is built to slow the path between a person and a weapon. The structure in the other is built to remove every obstacle from that path. Same country. Two different machines.
+      </p>
+    </div>
+
+    <div>
+      <div class="flex items-baseline gap-4 mb-3">
+        <span class="serif text-4xl text-stone-400">02</span>
+        <h3 class="text-2xl font-semibold">Distribution</h3>
+      </div>
+      <p class="text-lg leading-relaxed text-stone-800">
+        Distribution is who gets what, where. In gun violence, distribution shows up most clearly in geography. Approximately half of all urban gun violence in America happens on roughly 5% of city blocks. That is not a finding about who is shooting. It is a finding about where the shooting happens. And the where maps almost exactly onto neighborhoods that have been distributed less of everything else for generations: less school funding, less commercial investment, less employment, less institutional density, less political voice. Violence does not concentrate randomly. It concentrates where the rest of the system has been thinned out.
+      </p>
+    </div>
+
+    <div>
+      <div class="flex items-baseline gap-4 mb-3">
+        <span class="serif text-4xl text-stone-400">03</span>
+        <h3 class="text-2xl font-semibold">Adaptation</h3>
+      </div>
+      <p class="text-lg leading-relaxed text-stone-800">
+        Adaptation is how a system responds to pressure. In high-violence neighborhoods, communities adapt to the structural reality they live in. Distrust of institutions. Reliance on informal social structures. Norms around retaliation that compensate for the absence of credible legal protection. Economic activity built around illegal markets that compensates for the absence of legitimate ones. These are not irrational responses. They are rational adaptations to a system that does not provide the alternatives. And they self-reinforce. The communities that experience the most violence become the ones least likely to receive the structural investments that would reduce it. The system adapts to keep producing what it produces.
+      </p>
+    </div>
   </div>
+</section>
 
-</div>
+<!-- Why the Debate Goes Nowhere -->
+<section class="max-w-3xl mx-auto px-6 pt-16 pb-8">
+  <h2 class="serif text-4xl font-semibold mb-8">Why the Debate Goes Nowhere</h2>
+  <div class="space-y-6 text-lg leading-relaxed text-stone-800">
+    <p>
+      The American gun violence debate has two primary positions, and they share a common flaw: both locate the problem in people rather than systems. The conservative argument focuses on individual moral failure: mental illness, family breakdown, personal responsibility. The progressive argument focuses on individual access: background checks, magazine limits, waiting periods. Both assume that if you change the person, or change what the person can access, the outcome will change.
+    </p>
+    <p>
+      There is real evidence that access restrictions work. The Massachusetts and Mississippi comparison makes that clear, and the evidence base for licensing, background checks, and extreme risk protection laws is strong. But the 5% of city blocks finding points to something the access debate alone cannot reach. About half of all gun violence in American cities is concentrated in places shaped by decades of structural disinvestment. You cannot legislate past that with one more rule about who can buy what. You have to redesign what the neighborhood was designed to offer.
+    </p>
+  </div>
+</section>
 
-<footer>
-  <div class="footer-logo"><em>By</em> Design</div>
-  <p class="footer-text">2025 Colin Daymude. All rights reserved.</p>
+<!-- What Works -->
+<section class="max-w-3xl mx-auto px-6 pt-16 pb-8">
+  <h2 class="serif text-4xl font-semibold mb-8">What Works and Why</h2>
+  <div class="space-y-6 text-lg leading-relaxed text-stone-800">
+    <p>
+      The interventions with the strongest evidence base share a common feature: they treat gun violence as a community design problem, not an individual character problem.
+    </p>
+    <p>
+      Community Violence Intervention programs deploy credible messengers, often formerly incarcerated people, to interrupt conflicts and connect high-risk individuals to services. These programs have produced measurable reductions in shootings in cities including Chicago, Oakland, and Baltimore.
+    </p>
+    <p>
+      Los Angeles&rsquo;s Gang Reduction and Youth Development program took a structural approach: investing in youth employment, mental health services, community centers, and conflict mediation in the 22 neighborhoods with the highest violence rates. Even after COVID-era increases, Los Angeles homicides remain more than 20% below their pre-program average. <strong>The program did not change the people. It changed what the neighborhoods were designed to offer them.</strong>
+    </p>
+    <p>
+      A 2017 review of community programs across 264 cities found that for every 10 additional nonprofit crime-reduction programs per 100,000 residents, homicides fell by 9% and violent crime fell by 6%. The structural variable, community institutional density, predicted violence reduction better than policing strategy or gun law stringency. Communities with more institutional resources to absorb conflict produce less violence. That is a design finding.
+    </p>
+  </div>
+</section>
+
+<!-- Failure / Success boxes -->
+<section class="max-w-5xl mx-auto px-6 py-12">
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-rose-50 border border-rose-200 rounded-lg p-8">
+      <p class="text-sm font-semibold tracking-widest uppercase text-rose-700 mb-4">Design Failure</p>
+      <p class="text-stone-800 leading-relaxed">
+        Decades of &ldquo;tough on crime&rdquo; policing concentrated enforcement in the same 5% of city blocks without addressing the structural conditions that produced the violence. Crime would fall during intensive policing periods, then return. The underlying architecture of concentrated poverty, absent economic opportunity, and depleted community institutions regenerated the conditions for violence as reliably as a garden produces weeds when you pull them without changing the soil.
+      </p>
+    </div>
+    <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-8">
+      <p class="text-sm font-semibold tracking-widest uppercase text-emerald-700 mb-4">Design Success</p>
+      <p class="text-stone-800 leading-relaxed">
+        Hospital-based Violence Intervention Programs identify victims of gun violence in the ER at the moment of highest receptivity and connect them to case management, employment support, and behavioral health services before discharge. The strongest risk factor for gun violence is prior violent injury; HVIPs interrupt that cycle at the structural level. Cities with mature HVIP programs have seen injury recidivism rates drop significantly from the baseline of 45% within five years.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Closing -->
+<section class="max-w-3xl mx-auto px-6 pt-16 pb-8">
+  <h2 class="serif text-4xl font-semibold mb-8">The Output Is By Design</h2>
+  <div class="space-y-6 text-lg leading-relaxed text-stone-800">
+    <p>
+      Gun violence in America is not a mystery. It is a map. It follows the contours of structural disinvestment with remarkable precision. The argument about guns and people has produced decades of stalemate. The argument about design, about what these communities were built to offer and what we could build instead, is just beginning. It is a more honest conversation. And it may be the only one with a real answer at the end of it.
+    </p>
+    <p>
+      Individuals are the inputs. The system is what determines the output. The American gun violence system is producing exactly what it was designed to produce. Not because anyone designed it to kill people. Because in too much of the country, the prevailing design choice has been to build nothing, and to defend that nothing as a value.
+    </p>
+    <p>
+      Until the conversation moves from who pulled the trigger to what the system was built to make likely, the output will not change.
+    </p>
+  </div>
+</section>
+
+<!-- Design Question pull quote -->
+<section class="max-w-3xl mx-auto px-6 py-12">
+  <div class="border-l-2 border-stone-900 pl-8 py-2">
+    <p class="text-sm font-semibold tracking-widest uppercase text-stone-500 mb-4">The Design Question</p>
+    <p class="serif text-2xl italic leading-relaxed text-stone-800">
+      If we mapped the structural conditions of every high-violence neighborhood in America, the poverty rates, the school funding, the institutional density, the economic opportunity, what would we find that the violence debate has been missing?
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="max-w-3xl mx-auto px-6 pt-12 pb-24">
+  <div class="bg-stone-900 text-stone-50 rounded-lg p-10 text-center">
+    <h3 class="serif text-3xl font-semibold mb-4">What is your community&rsquo;s violence system designed to produce?</h3>
+    <p class="text-stone-300 mb-8 leading-relaxed">
+      Describe the gun violence or public safety challenge in your community and get a structural diagnosis through the By Design framework.
+    </p>
+    <a href="/analyzer" class="inline-block px-8 py-3 bg-stone-50 text-stone-900 rounded-full font-medium hover:bg-white transition">Analyze Your System →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-stone-200">
+  <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-4">
+    <a href="/" class="text-xl tracking-tight">
+      <span class="italic-by">By</span> <span class="font-semibold">Design</span>
+    </a>
+    <p class="text-sm text-stone-500">© 2025 Colin Daymude. All rights reserved.</p>
+    <nav class="flex items-center gap-6 text-sm text-stone-600">
+      <a href="/#framework" class="hover:text-stone-900 transition">Framework</a>
+      <a href="/#about" class="hover:text-stone-900 transition">About</a>
+      <a href="/analyzer" class="hover:text-stone-900 transition">Analyzer</a>
+    </nav>
+  </div>
 </footer>
+
 </body>
 </html>
